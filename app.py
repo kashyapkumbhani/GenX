@@ -272,5 +272,205 @@ def save_api_keys():
             'error': str(e)
         }), 500
 
+@app.route('/generate_services', methods=['POST'])
+def generate_services():
+    """Generate additional services using AI based on business category and primary service"""
+    try:
+        from modules.ai_content import get_random_api_key
+        import requests
+        
+        data = request.get_json()
+        business_category = data.get('businessCategory', '').strip()
+        primary_keyword = data.get('primaryKeyword', '').strip()
+        quantity = data.get('quantity', 8)  # Default to 8 if not provided
+        
+        if not business_category or not primary_keyword:
+            return jsonify({
+                'success': False,
+                'error': 'Business category and primary keyword are required'
+            }), 400
+        
+        # Validate quantity
+        try:
+            quantity = int(quantity)
+            if quantity < 1 or quantity > 50:
+                quantity = 8  # Default to 8 if invalid
+        except (ValueError, TypeError):
+            quantity = 8
+        
+        # Get API key
+        api_key = get_random_api_key()
+        if not api_key:
+            return jsonify({
+                'success': False,
+                'error': 'No valid API keys available'
+            }), 400
+        
+        # Create AI prompt for services
+        prompt = f"""Generate exactly {quantity} additional services for a {business_category} business whose primary service is "{primary_keyword}".
+
+Requirements:
+- Generate exactly {quantity} services, no more, no less
+- Services should be related to {business_category} industry
+- Include both basic and specialized services
+- Make them specific and actionable
+- Return as comma-separated values only
+- No explanations or additional text
+- Keep each service name concise (2-4 words)
+
+Example format: Service 1, Service 2, Service 3, etc."""
+
+        # Make API request
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={api_key}"
+        
+        payload = {
+            "contents": [
+                {
+                    "parts": [
+                        {
+                            "text": prompt
+                        }
+                    ]
+                }
+            ]
+        }
+        
+        headers = {
+            'Content-Type': 'application/json'
+        }
+        
+        response = requests.post(url, json=payload, headers=headers, timeout=30)
+        
+        if response.status_code == 200:
+            result = response.json()
+            if 'candidates' in result and len(result['candidates']) > 0:
+                generated_text = result['candidates'][0]['content']['parts'][0]['text'].strip()
+                
+                # Clean up the response
+                services = [service.strip() for service in generated_text.split(',')]
+                services = [service for service in services if service and len(service) > 2]
+                
+                return jsonify({
+                    'success': True,
+                    'services': ', '.join(services)
+                })
+            else:
+                return jsonify({
+                    'success': False,
+                    'error': 'No content generated'
+                }), 400
+        else:
+            return jsonify({
+                'success': False,
+                'error': f'API request failed with status {response.status_code}'
+            }), 400
+            
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+
+@app.route('/generate_cities', methods=['POST'])
+def generate_cities():
+    """Generate service areas (cities) using AI based on business location"""
+    try:
+        from modules.ai_content import get_random_api_key
+        import requests
+        
+        data = request.get_json()
+        city = data.get('city', '').strip()
+        state = data.get('state', '').strip()
+        business_category = data.get('businessCategory', '').strip()
+        quantity = data.get('quantity', 10)  # Default to 10 if not provided
+        
+        if not city or not state:
+            return jsonify({
+                'success': False,
+                'error': 'City and state are required'
+            }), 400
+        
+        # Validate quantity
+        try:
+            quantity = int(quantity)
+            if quantity < 1 or quantity > 50:
+                quantity = 10  # Default to 10 if invalid
+        except (ValueError, TypeError):
+            quantity = 10
+        
+        # Get API key
+        api_key = get_random_api_key()
+        if not api_key:
+            return jsonify({
+                'success': False,
+                'error': 'No valid API keys available'
+            }), 400
+        
+        # Create AI prompt for cities
+        prompt = f"""Generate exactly {quantity} cities and towns near {city}, {state} where a {business_category} business would typically provide services.
+
+Requirements:
+- Generate exactly {quantity} cities/areas, no more, no less
+- Include {city} as the first city
+- Focus on nearby cities, suburbs, and towns within reasonable service distance
+- Include both larger cities and smaller communities
+- Make them realistic locations in {state}
+- Return as comma-separated values only
+- No explanations or additional text
+- Keep names concise and accurate
+
+Example format: City 1, City 2, City 3, etc."""
+
+        # Make API request
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={api_key}"
+        
+        payload = {
+            "contents": [
+                {
+                    "parts": [
+                        {
+                            "text": prompt
+                        }
+                    ]
+                }
+            ]
+        }
+        
+        headers = {
+            'Content-Type': 'application/json'
+        }
+        
+        response = requests.post(url, json=payload, headers=headers, timeout=30)
+        
+        if response.status_code == 200:
+            result = response.json()
+            if 'candidates' in result and len(result['candidates']) > 0:
+                generated_text = result['candidates'][0]['content']['parts'][0]['text'].strip()
+                
+                # Clean up the response
+                cities = [city.strip() for city in generated_text.split(',')]
+                cities = [city for city in cities if city and len(city) > 1]
+                
+                return jsonify({
+                    'success': True,
+                    'cities': ', '.join(cities)
+                })
+            else:
+                return jsonify({
+                    'success': False,
+                    'error': 'No content generated'
+                }), 400
+        else:
+            return jsonify({
+                'success': False,
+                'error': f'API request failed with status {response.status_code}'
+            }), 400
+            
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+
 if __name__ == '__main__':
     app.run(debug=True)

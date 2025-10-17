@@ -14,6 +14,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // AI Generation Event Listeners
+    const generateServicesBtn = document.getElementById('generateServicesBtn');
+    const generateCitiesBtn = document.getElementById('generateCitiesBtn');
+    
+    if (generateServicesBtn) {
+        generateServicesBtn.addEventListener('click', function() {
+            generateServices();
+        });
+    }
+    
+    if (generateCitiesBtn) {
+        generateCitiesBtn.addEventListener('click', function() {
+            generateCities();
+        });
+    }
+    
     // Multi-step form navigation
     const form = document.getElementById('businessForm');
     const steps = document.querySelectorAll('.step-content');
@@ -273,5 +289,208 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p><strong>Description:</strong> Professional template optimized for local businesses</p>
             `;
         }
+    }
+    
+    // AI Generation Functions
+    async function generateServices() {
+        const generateBtn = document.getElementById('generateServicesBtn');
+        const servicesTextarea = document.getElementById('additionalServices');
+        const businessCategorySelect = document.getElementById('businessCategory');
+        const customCategoryInput = document.getElementById('customCategory');
+        const primaryKeywordInput = document.getElementById('primaryKeyword');
+        const quantityInput = document.getElementById('servicesQuantity');
+        
+        // Get business category
+        let businessCategory = businessCategorySelect.value;
+        if (businessCategory === 'custom') {
+            businessCategory = customCategoryInput.value.trim();
+        }
+        
+        const primaryKeyword = primaryKeywordInput.value.trim();
+        const quantity = parseInt(quantityInput.value) || 5;
+        
+        // Validation
+        if (!businessCategory || !primaryKeyword) {
+            alert('Please fill in Business Category and Primary Keyword first.');
+            return;
+        }
+        
+        // Show loading state
+        generateBtn.disabled = true;
+        generateBtn.classList.add('loading');
+        generateBtn.innerHTML = '<span class="ai-icon">🤖</span> Generating...';
+        
+        try {
+            const response = await fetch('/generate_services', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    businessCategory: businessCategory,
+                    primaryKeyword: primaryKeyword,
+                    quantity: quantity
+                })
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                // Append to existing services or replace if empty
+                const currentServices = servicesTextarea.value.trim();
+                if (currentServices) {
+                    servicesTextarea.value = currentServices + ', ' + data.services;
+                } else {
+                    servicesTextarea.value = data.services;
+                }
+                
+                // Show success feedback
+                showNotification(`Generated ${quantity} services successfully!`, 'success');
+            } else {
+                showNotification('Error: ' + data.error, 'error');
+            }
+        } catch (error) {
+            showNotification('Network error: ' + error.message, 'error');
+        } finally {
+            // Reset button state
+            generateBtn.disabled = false;
+            generateBtn.classList.remove('loading');
+            generateBtn.innerHTML = '<span class="ai-icon">🤖</span> AI Generate';
+        }
+    }
+    
+    async function generateCities() {
+        const generateBtn = document.getElementById('generateCitiesBtn');
+        const citiesTextarea = document.getElementById('serviceAreas');
+        const cityInput = document.getElementById('city');
+        const stateInput = document.getElementById('state');
+        const businessCategorySelect = document.getElementById('businessCategory');
+        const customCategoryInput = document.getElementById('customCategory');
+        const quantityInput = document.getElementById('citiesQuantity');
+        
+        // Get business category
+        let businessCategory = businessCategorySelect.value;
+        if (businessCategory === 'custom') {
+            businessCategory = customCategoryInput.value.trim();
+        }
+        
+        const city = cityInput.value.trim();
+        const state = stateInput.value.trim();
+        const quantity = parseInt(quantityInput.value) || 10;
+        
+        // Validation
+        if (!city || !state) {
+            alert('Please fill in City and State first.');
+            return;
+        }
+        
+        // Show loading state
+        generateBtn.disabled = true;
+        generateBtn.classList.add('loading');
+        generateBtn.innerHTML = '<span class="ai-icon">🤖</span> Generating...';
+        
+        try {
+            const response = await fetch('/generate_cities', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    city: city,
+                    state: state,
+                    businessCategory: businessCategory,
+                    quantity: quantity
+                })
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                // Append to existing cities or replace if empty
+                const currentCities = citiesTextarea.value.trim();
+                if (currentCities) {
+                    citiesTextarea.value = currentCities + ', ' + data.cities;
+                } else {
+                    citiesTextarea.value = data.cities;
+                }
+                
+                // Show success feedback
+                showNotification(`Generated ${quantity} service areas successfully!`, 'success');
+            } else {
+                showNotification('Error: ' + data.error, 'error');
+            }
+        } catch (error) {
+            showNotification('Network error: ' + error.message, 'error');
+        } finally {
+            // Reset button state
+            generateBtn.disabled = false;
+            generateBtn.classList.remove('loading');
+            generateBtn.innerHTML = '<span class="ai-icon">🤖</span> AI Generate';
+        }
+    }
+    
+    // Notification system
+    function showNotification(message, type = 'info') {
+        // Remove existing notifications
+        const existingNotifications = document.querySelectorAll('.notification');
+        existingNotifications.forEach(notification => notification.remove());
+        
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.textContent = message;
+        
+        // Add styles
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 20px;
+            border-radius: 6px;
+            color: white;
+            font-weight: 500;
+            z-index: 10000;
+            max-width: 400px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            animation: slideIn 0.3s ease-out;
+        `;
+        
+        // Set background color based on type
+        if (type === 'success') {
+            notification.style.backgroundColor = '#28a745';
+        } else if (type === 'error') {
+            notification.style.backgroundColor = '#dc3545';
+        } else {
+            notification.style.backgroundColor = '#17a2b8';
+        }
+        
+        // Add animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Add to page
+        document.body.appendChild(notification);
+        
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+            notification.style.animation = 'slideIn 0.3s ease-out reverse';
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 300);
+        }, 5000);
     }
 });

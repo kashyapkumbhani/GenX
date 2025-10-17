@@ -93,11 +93,31 @@
                         </div>
                         <div class="form-group">
                             <label for="additionalServices">Additional Services</label>
-                            <textarea id="additionalServices" name="additionalServices" placeholder="Enter comma separated values"></textarea>
+                            <div class="input-with-ai-button">
+                                <textarea id="additionalServices" name="additionalServices" placeholder="Enter comma separated values"></textarea>
+                                <button type="button" class="btn-ai-generate" id="generateServicesBtn" title="Generate additional services using AI">
+                                    <span class="ai-icon">🤖</span>
+                                    AI Generate
+                                </button>
+                            </div>
+                            <div class="ai-quantity-control">
+                                <label for="servicesQuantity">Number of services to generate:</label>
+                                <input type="number" id="servicesQuantity" min="1" max="50" value="5" class="quantity-input">
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="serviceAreas">Service Areas (Cities) *</label>
-                            <textarea id="serviceAreas" name="serviceAreas" placeholder="Enter comma separated values" required></textarea>
+                            <div class="input-with-ai-button">
+                                <textarea id="serviceAreas" name="serviceAreas" placeholder="Enter comma separated values" required></textarea>
+                                <button type="button" class="btn-ai-generate" id="generateCitiesBtn" title="Generate service areas using AI">
+                                    <span class="ai-icon">🤖</span>
+                                    AI Generate
+                                </button>
+                            </div>
+                            <div class="ai-quantity-control">
+                                <label for="citiesQuantity">Number of cities to generate:</label>
+                                <input type="number" id="citiesQuantity" min="1" max="50" value="10" class="quantity-input">
+                            </div>
                         </div>
                         <div class="form-buttons">
                             <button type="button" class="btn-prev">Previous</button>
