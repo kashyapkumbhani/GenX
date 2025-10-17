@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Site Generator - Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        {% include 'templates/components/sidebar.html' %}
+        
+        <main class="content">
+            <h1>Business Site Generator</h1>
+            <p>Generate a professional business website in minutes.</p>
+            
+            <div class="form-container">
+                <form id="businessForm">
+                    <div class="step-indicator">
+                        <div class="step active" data-step="1">Business Info</div>
+                        <div class="step" data-step="2">Services</div>
+                        <div class="step" data-step="3">Template</div>
+                        <div class="step" data-step="4">Review</div>
+                    </div>
+                    
+                    <div class="step-content active" data-step="1">
+                        <h2>Business Information</h2>
+                        <div class="form-group">
+                            <label for="businessName">Business Name *</label>
+                            <input type="text" id="businessName" name="businessName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phoneNumber">Phone Number</label>
+                            <input type="tel" id="phoneNumber" name="phoneNumber">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Street Address</label>
+                            <input type="text" id="address" name="address">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" id="city" name="city">
+                            </div>
+                            <div class="form-group">
+                                <label for="state">State</label>
+                                <input type="text" id="state" name="state">
+                            </div>
+                            <div class="form-group">
+                                <label for="zipCode">ZIP Code</label>
+                                <input type="text" id="zipCode" name="zipCode">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="website">Website URL</label>
+                            <input type="url" id="website" name="website">
+                        </div>
+                        <div class="form-group">
+                            <label for="businessCategory">Business Category</label>
+                            <div class="category-input-container">
+                                <select id="businessCategory" name="businessCategory">
+                                    <option value="">Select a category or add custom</option>
+                                    <option value="Plumbing">Plumbing</option>
+                                    <option value="Electrical">Electrical</option>
+                                    <option value="HVAC">HVAC</option>
+                                    <option value="Cleaning">Cleaning</option>
+                                    <option value="Landscaping">Landscaping</option>
+                                    <option value="Construction">Construction</option>
+                                    <option value="Automotive">Automotive</option>
+                                    <option value="Restaurant">Restaurant</option>
+                                    <option value="Retail">Retail</option>
+                                    <option value="Healthcare">Healthcare</option>
+                                    <option value="custom">Add Custom Category</option>
+                                </select>
+                                <input type="text" id="customCategory" name="customCategory" placeholder="Enter custom category" style="display: none;">
+                            </div>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="button" class="btn-next">Next</button>
+                            <button type="button" class="btn-autofill">Autofill Form</button>
+                        </div>
+                    </div>
+                    
+                    <div class="step-content" data-step="2">
+                        <h2>Services and Keywords</h2>
+                        <div class="form-group">
+                            <label for="primaryKeyword">Primary Keyword/Service *</label>
+                            <input type="text" id="primaryKeyword" name="primaryKeyword" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="additionalServices">Additional Services</label>
+                            <textarea id="additionalServices" name="additionalServices" placeholder="Enter comma separated values"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="serviceAreas">Service Areas (Cities) *</label>
+                            <textarea id="serviceAreas" name="serviceAreas" placeholder="Enter comma separated values" required></textarea>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="button" class="btn-prev">Previous</button>
+                            <button type="button" class="btn-next">Next</button>
+                        </div>
+                    </div>
+                    
+                    <div class="step-content" data-step="3">
+                        <h2>Choose Template</h2>
+                        <div class="form-group">
+                            <label for="template">Select Template *</label>
+                            <select id="template" name="template" required>
+                                {% for template_name, template_info in templates.items() %}
+                                <option value="{{ template_name }}" {% if loop.first %}selected{% endif %}>
+                                    {{ template_name|title }} Template
+                                    {% if template_info %} - {{ template_info|length }} page types{% endif %}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="template-info">
+                            <p><strong>Selected Template Details:</strong></p>
+                            <div id="templateDetails">
+                                <!-- Will be populated dynamically -->
+                            </div>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="button" class="btn-prev">Previous</button>
+                            <button type="button" class="btn-next">Next</button>
+                        </div>
+                    </div>
+                    
+                    <div class="step-content" data-step="4">
+                        <h2>Review and Generate</h2>
+                        <div id="reviewContent">
+                            <!-- Will be populated with JavaScript -->
+                        </div>
+                        <div class="generation-info">
+                            <p>Pages to be generated: <span id="pageCount">0</span></p>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="button" class="btn-prev">Previous</button>
+                            <button type="button" id="generateBtn" class="btn-generate">Generate Site</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>

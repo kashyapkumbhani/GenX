@@ -1,0 +1,39 @@
+{
+  "business": {
+    "name": "Kashyap Plumbing Services",
+    "phone": "(555) 123-4567",
+    "email": "contact@Kashyap .com",
+    "address": "Kashyap  Main Street",
+    "city": "Austin",
+    "state": "Texas",
+    "zipCode": "78701",
+    "website": "https://Kashyap .com",
+    "category": "Plumbing"
+  },
+  "primary_keyword": "Plumber",
+  "additional_services": [
+    "Emergency Plumbing",
+    "Drain Cleaning",
+    "Water Heater Installation",
+    "Leak Detection"
+  ],
+  "service_areas": [
+    {
+      "city": "Austin"
+    },
+    {
+      "city": "Round Rock"
+    },
+    {
+      "city": "Cedar Park"
+    },
+    {
+      "city": "Georgetown"
+    },
+    {
+      "city": "Pflugerville"
+    }
+  ],
+  "template": "Greenz",
+  "timestamp": "2025-10-17T11:42:17.750027"
+}

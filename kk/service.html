@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[SERVICE_NAME] Services in [CITY/LOCATION] | Professional [SERVICE_NAME] Experts</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Professional [SERVICE_NAME] services in [CITY/LOCATION]. Licensed, insured experts with 24/7 emergency service. Free estimates, satisfaction guaranteed. Call (555) 123-4567">
+    <meta name="keywords" content="[SERVICE_NAME], [SERVICE_NAME] service, [CITY/LOCATION] [SERVICE_NAME], emergency [SERVICE_NAME], professional [SERVICE_NAME]">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourwebsite.com/service.html">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Professional [SERVICE_NAME] Services in [CITY/LOCATION]">
+    <meta property="og:description" content="Expert [SERVICE_NAME] services with guaranteed satisfaction. Licensed professionals serving [CITY/LOCATION] area.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com/service.html">
+
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for the required font and clean look */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f7; /* Very light gray for contrast */
+        }
+        .cta-button {
+            /* Deep emerald green, solid color, no gradient */
+            background-color: #059669; /* emerald-600 */
+            transition: background-color 0.3s, transform 0.1s;
+        }
+        .cta-button:hover {
+            background-color: #047857; /* emerald-700 */
+            transform: translateY(-1px);
+        }
+        .section-header {
+            color: #059669; /* emerald-600 */
+        }
+        .border-green {
+            border-color: #059669;
+        }
+        /* Style for the Contact Form */
+        .input-field {
+            border: 1px solid #d1d5db;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            width: 100%;
+            transition: border-color 0.2s;
+        }
+        .input-field:focus {
+            outline: none;
+            border-color: #059669;
+            box-shadow: 0 0 0 1px #059669;
+        }
+        /* Service-specific styling */
+        .service-card {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+        }
+        .urgency-badge {
+            background-color: #ffffff;
+            color: #059669;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: bold;
+            border: 2px solid #059669;
+            display: inline-block;
+            margin: 0 auto;
+        }
+    </style>
+    <!-- Configure Tailwind to use 'Inter' (default) and a green palette -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-green': '#059669',
+                        'secondary-green': '#10b981',
+                        'light-gray': '#f7f7f7',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="text-gray-800">
+
+    <!-- 1. HEADER & NAVIGATION -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
+            <h1 class="text-2xl font-bold text-primary-green">
+                <a href="index.html">YourBusiness Pro</a>
+            </h1>
+            <nav class="hidden md:flex space-x-6 text-gray-600 font-medium">
+                <a href="index.html#services" class="hover:text-primary-green transition duration-150">All Services</a>
+                <a href="#service-overview" class="hover:text-primary-green transition duration-150">[SERVICE_NAME] Services</a>
+                <a href="#why-choose" class="hover:text-primary-green transition duration-150">Why Choose Us</a>
+                <a href="#service-areas" class="hover:text-primary-green transition duration-150">Service Areas</a>
+                <a href="#contact" class="hover:text-primary-green transition duration-150">Get Quote</a>
+            </nav>
+            <!-- CTA: High visibility button -->
+            <a href="#contact" class="cta-button text-white px-5 py-2 rounded-lg font-semibold shadow-lg hidden sm:block">
+                Get Free Quote
+            </a>
+            <!-- Mobile Menu/CTA -->
+            <a href="tel:555-1234" class="md:hidden text-primary-green font-bold text-lg">
+                Call Now
+            </a>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- 2. HERO SECTION (Service-specific with urgency) -->
+        <section id="hero" class="bg-gradient-to-br from-primary-green to-secondary-green py-16 md:py-24 text-center text-white relative overflow-hidden">
+            <!-- Background Pattern -->
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+            </div>
+
+            <div class="relative max-w-5xl mx-auto px-4">
+                <!-- H1: SEO optimized for service and location -->
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">
+                    Expert <span class="text-white">[SERVICE_NAME]</span> Services
+                    <br><span class="text-white">in [CITY/LOCATION]</span>
+                </h2>
+                <p class="text-xl md:text-2xl text-green-100 mb-6 max-w-3xl mx-auto">
+                    Licensed, insured professionals with [X] years of experience. Fast response, quality work, guaranteed satisfaction.
+                </p>
+
+                <!-- Urgency Badge -->
+                <div class="urgency-badge mb-6">24/7 Emergency Service</div>
+
+                <!-- Key Stats -->
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8 mb-8">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-white">24/7</div>
+                        <div class="text-sm text-white">Emergency Service</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-white">100%</div>
+                        <div class="text-sm text-white">Satisfaction Guarantee</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-white">[X]+</div>
+                        <div class="text-sm text-white">Years Experience</div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#contact" class="bg-white text-primary-green px-10 py-4 rounded-xl text-xl font-bold border-2 border-primary-green shadow-xl">
+                        Get Free Quote Now!
+                    </a>
+                    <a href="tel:555-1234" class="bg-white text-primary-green px-10 py-4 rounded-xl text-xl font-bold border-2 border-white/50 hover:bg-gray-100">
+                        Emergency: (555) 123-4567
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SERVICE OVERVIEW & BENEFITS -->
+        <section id="service-overview" class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold mb-4 section-header">Professional [SERVICE_NAME] Services You Can Trust</h3>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        From routine maintenance to emergency repairs, we provide comprehensive [SERVICE_NAME] solutions for residential and commercial properties.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service 1 -->
+                    <div class="relative p-6 bg-gradient-to-br from-primary-green/5 to-secondary-green/5 rounded-xl shadow-lg border-t-4 border-primary-green">
+                        <h4 class="text-xl font-semibold mb-3 text-gray-900">Emergency [SERVICE_NAME] Repairs</h4>
+                        <p class="text-gray-600 mb-4">24/7 rapid response for urgent [SERVICE_NAME] emergencies. Licensed technicians arrive within [X] hours.</p>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>• Burst pipes, leaks, clogs</li>
+                            <li>• Power outages, faulty wiring</li>
+                            <li>• HVAC breakdowns</li>
+                            <li>• All emergency repairs</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="relative p-6 bg-gradient-to-br from-primary-green/5 to-secondary-green/5 rounded-xl shadow-lg border-t-4 border-primary-green">
+                        <h4 class="text-xl font-semibold mb-3 text-gray-900">Routine Maintenance</h4>
+                        <p class="text-gray-600 mb-4">Preventive [SERVICE_NAME] services to keep your systems running efficiently and avoid costly breakdowns.</p>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>• Regular inspections</li>
+                            <li>• System tune-ups</li>
+                            <li>• Filter replacements</li>
+                            <li>• Performance optimization</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="relative p-6 bg-gradient-to-br from-primary-green/5 to-secondary-green/5 rounded-xl shadow-lg border-t-4 border-primary-green">
+                        <h4 class="text-xl font-semibold mb-3 text-gray-900">Installation & Upgrades</h4>
+                        <p class="text-gray-600 mb-4">Professional installation of new [SERVICE_NAME] systems and upgrades to existing infrastructure.</p>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>• New system installation</li>
+                            <li>• Equipment upgrades</li>
+                            <li>• Code compliance</li>
+                            <li>• Energy-efficient solutions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. WHY CHOOSE US (Service-specific USPs) -->
+        <section id="why-choose" class="py-16 bg-light-gray">
+            <div class="max-w-7xl mx-auto px-4">
+                <h3 class="text-3xl font-bold mb-10 text-center section-header">Why [CITY/LOCATION] Chooses Us for [SERVICE_NAME] Services</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center p-4">
+                        <div class="w-16 h-16 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-white text-2xl font-bold">24/7</span>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-2">24/7 Emergency Service</h4>
+                        <p class="text-gray-600 text-sm">Round-the-clock availability for urgent [SERVICE_NAME] needs. Never wait for business hours.</p>
+                    </div>
+                    <div class="text-center p-4">
+                        <div class="w-16 h-16 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-white text-2xl font-bold">PRO</span>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-2">Licensed & Insured</h4>
+                        <p class="text-gray-600 text-sm">Fully licensed, bonded, and insured professionals. Your property is protected.</p>
+                    </div>
+                    <div class="text-center p-4">
+                        <div class="w-16 h-16 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-white text-2xl font-bold">100%</span>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-2">Satisfaction Guaranteed</h4>
+                        <p class="text-gray-600 text-sm">100% satisfaction guarantee on all [SERVICE_NAME] work. We stand behind our service.</p>
+                    </div>
+                    <div class="text-center p-4">
+                        <div class="w-16 h-16 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-white text-2xl font-bold">EXP</span>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-2">[X]+ Years Experience</h4>
+                        <p class="text-gray-600 text-sm">Local experts with decades of combined experience in [SERVICE_NAME] services.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. HOW IT WORKS (Service Process) -->
+        <section id="process" class="py-16 bg-white">
+            <div class="max-w-5xl mx-auto px-4">
+                <h3 class="text-3xl font-bold mb-12 text-center section-header">Our [SERVICE_NAME] Service Process</h3>
+                <div class="relative">
+                    <!-- Timeline line -->
+                    <div class="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-primary-green/30 transform -translate-y-1/2"></div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                        <!-- Step 1 -->
+                        <div class="text-center relative p-6 bg-white rounded-xl shadow-xl border-2 border-primary-green/20">
+                            <div class="w-12 h-12 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl ring-4 ring-primary-green/30">1</div>
+                            <h4 class="text-lg font-semibold mb-2">Call for Quote</h4>
+                            <p class="text-gray-600 text-sm">Contact us 24/7 for a free, detailed quote. We'll assess your needs and provide transparent pricing.</p>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="text-center relative p-6 bg-white rounded-xl shadow-xl border-2 border-primary-green/20">
+                            <div class="w-12 h-12 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl ring-4 ring-primary-green/30">2</div>
+                            <h4 class="text-lg font-semibold mb-2">Fast Response</h4>
+                            <p class="text-gray-600 text-sm">Our licensed technicians arrive quickly with all necessary tools and parts for efficient service.</p>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="text-center relative p-6 bg-white rounded-xl shadow-xl border-2 border-primary-green/20">
+                            <div class="w-12 h-12 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl ring-4 ring-primary-green/30">3</div>
+                            <h4 class="text-lg font-semibold mb-2">Expert Service</h4>
+                            <p class="text-gray-600 text-sm">Professional [SERVICE_NAME] work completed to code with quality materials and proven techniques.</p>
+                        </div>
+                        <!-- Step 4 -->
+                        <div class="text-center relative p-6 bg-white rounded-xl shadow-xl border-2 border-primary-green/20">
+                            <div class="w-12 h-12 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl ring-4 ring-primary-green/30">4</div>
+                            <h4 class="text-lg font-semibold mb-2">Satisfaction Check</h4>
+                            <p class="text-gray-600 text-sm">We ensure you're completely satisfied. All work backed by our comprehensive guarantee.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. SERVICE AREAS & RESPONSE TIMES -->
+        <section id="service-areas" class="py-16 bg-primary-green/5">
+            <div class="max-w-7xl mx-auto px-4">
+                <h3 class="text-3xl font-bold mb-6 text-center section-header">Service Areas & Response Times</h3>
+                <p class="text-lg text-gray-600 text-center mb-10 max-w-2xl mx-auto">Fast, reliable [SERVICE_NAME] services across [CITY/LOCATION] and surrounding areas.</p>
+ 
+
+                <!-- Service Area Map/List -->
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h4 class="text-xl font-semibold mb-4 text-center text-gray-900">Complete Service Area Coverage</h4>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 text-sm">
+                        <span class="p-2 bg-light-gray rounded text-gray-700 text-center">Downtown</span>
+                        <span class="p-2 bg-light-gray rounded text-gray-700 text-center">Midtown</span>
+                        <span class="p-2 bg-light-gray rounded text-gray-700 text-center">Uptown</span>
+                        <span class="p-2 bg-light-gray rounded text-gray-700 text-center">Westside</span>
+                        <span class="p-2 bg-light-gray rounded text-gray-700 text-center">Eastside</span>
+                        <span class="p-2 bg-light-gray rounded text-gray-700 text-center">North District</span>
+                        <span class="p-2 bg-light-gray rounded text-gray-700 text-center">South District</span>
+                        <span class="p-2 bg-light-gray rounded text-gray-700 text-center">Riverside</span>
+                        <span class="p-2 bg-light-gray rounded text-gray-700 text-center">Hillcrest</span>
+                        <span class="p-2 bg-light-gray rounded text-gray-700 text-center">Oakwood</span>
+                        <span class="p-2 bg-light-gray rounded text-gray-700 text-center">Fairview</span>
+                        <span class="p-2 bg-light-gray rounded text-gray-700 text-center">Sunset Valley</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. TESTIMONIALS (Service-specific social proof) -->
+        <section id="testimonials" class="py-16 bg-white">
+            <div class="max-w-5xl mx-auto px-4">
+                <h3 class="text-3xl font-bold mb-10 text-center section-header">What Our [SERVICE_NAME] Customers Say</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-primary-green/5 p-6 rounded-xl shadow-lg border-l-4 border-primary-green">
+                        <div class="flex text-yellow-400 mb-3">
+                            <span class="text-sm font-semibold">5-Star Rating</span>
+                        </div>
+                        <p class="italic text-gray-700 mb-4">"Outstanding emergency [SERVICE_NAME] service! They arrived within 30 minutes and fixed our issue perfectly. Highly recommend!"</p>
+                        <p class="font-semibold text-primary-green">- Sarah M., Downtown</p>
+                    </div>
+                    <div class="bg-primary-green/5 p-6 rounded-xl shadow-lg border-l-4 border-primary-green">
+                        <div class="flex text-yellow-400 mb-3">
+                            <span class="text-sm font-semibold">5-Star Rating</span>
+                        </div>
+                        <p class="italic text-gray-700 mb-4">"Professional, knowledgeable, and fair pricing. The [SERVICE_NAME] installation was completed on time and exceeded our expectations."</p>
+                        <p class="font-semibold text-primary-green">- Michael R., Midtown</p>
+                    </div>
+                    <div class="bg-primary-green/5 p-6 rounded-xl shadow-lg border-l-4 border-primary-green">
+                        <div class="flex text-yellow-400 mb-3">
+                            <span class="text-sm font-semibold">5-Star Rating</span>
+                        </div>
+                        <p class="italic text-gray-700 mb-4">"We've used them for multiple [SERVICE_NAME] projects. Always reliable, professional, and the quality of work is excellent."</p>
+                        <p class="font-semibold text-primary-green">- Jennifer L., Uptown</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. SERVICE-SPECIFIC FAQ -->
+        <section id="faq" class="py-16 bg-light-gray">
+            <div class="max-w-4xl mx-auto px-4">
+                <h3 class="text-3xl font-bold mb-10 text-center section-header">Frequently Asked [SERVICE_NAME] Questions</h3>
+
+                <div class="space-y-4">
+                    <!-- Q1 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="w-full text-left p-4 font-semibold text-lg text-gray-900 bg-gray-50 hover:bg-primary-green/10 transition duration-150">
+                            Do you offer 24/7 emergency [SERVICE_NAME] services?
+                        </button>
+                        <div class="p-4 text-gray-600 border-t border-gray-200">
+                            Yes! We provide 24/7 emergency [SERVICE_NAME] services for urgent situations. Our licensed technicians are available round-the-clock to handle emergencies quickly and professionally.
+                        </div>
+                    </div>
+                    <!-- Q2 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="w-full text-left p-4 font-semibold text-lg text-gray-900 bg-gray-50 hover:bg-primary-green/10 transition duration-150">
+                            Are your [SERVICE_NAME] technicians licensed and insured?
+                        </button>
+                        <div class="p-4 text-gray-600 border-t border-gray-200">
+                            Absolutely. All our [SERVICE_NAME] technicians are fully licensed, bonded, and insured. We maintain all required certifications and stay current with industry standards and local building codes.
+                        </div>
+                    </div>
+                    <!-- Q3 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="w-full text-left p-4 font-semibold text-lg text-gray-900 bg-gray-50 hover:bg-primary-green/10 transition duration-150">
+                            What types of [SERVICE_NAME] services do you provide?
+                        </button>
+                        <div class="p-4 text-gray-600 border-t border-gray-200">
+                            We offer comprehensive [SERVICE_NAME] services including emergency repairs, routine maintenance, new installations, system upgrades, and preventive care for both residential and commercial properties.
+                        </div>
+                    </div>
+                    <!-- Q4 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="w-full text-left p-4 font-semibold text-lg text-gray-900 bg-gray-50 hover:bg-primary-green/10 transition duration-150">
+                            Do you provide free estimates for [SERVICE_NAME] work?
+                        </button>
+                        <div class="p-4 text-gray-600 border-t border-gray-200">
+                            Yes, we provide free, detailed estimates for all [SERVICE_NAME] projects. We'll assess your needs, explain your options, and provide transparent pricing before any work begins.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 10. CONTACT FORM (Service conversion point) -->
+        <section id="contact" class="py-16 bg-primary-green/5 border-t border-primary-green/20">
+            <div class="max-w-4xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Info Column -->
+                <div class="lg:pr-8">
+                    <h3 class="text-3xl font-bold mb-4 section-header">Get Your Free [SERVICE_NAME] Quote</h3>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Contact us now for fast, professional [SERVICE_NAME] service. Free estimates, no obligation.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <span class="text-primary-green text-xl font-bold">Phone:</span>
+                            <a href="tel:555-1234" class="text-xl font-semibold text-gray-900 hover:text-primary-green transition">Emergency: (555) 123-4567</a>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="text-primary-green text-xl font-bold">Email:</span>
+                            <a href="mailto:service@yourbusiness.com" class="text-xl font-semibold text-gray-900 hover:text-primary-green transition">service@yourbusiness.com</a>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="text-primary-green text-xl font-bold">Hours:</span>
+                            <p class="text-lg text-gray-700">Available 24/7 for emergencies<br>Serving [CITY/LOCATION] and surrounding areas</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form Column -->
+                <div class="bg-white p-8 rounded-xl shadow-2xl">
+                    <form action="#" method="POST" onsubmit="handleFormSubmit(event)">
+                        <div class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+                                <input type="text" id="name" name="name" required class="input-field" placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required class="input-field" placeholder="(555) 123-4567">
+                            </div>
+                            <div>
+                                <label for="service" class="block text-sm font-medium text-gray-700 mb-1">Service Needed *</label>
+                                <select id="service" name="service" required class="input-field">
+                                    <option value="">Select [SERVICE_NAME] Service</option>
+                                    <option value="emergency-repair">Emergency Repair</option>
+                                    <option value="routine-maintenance">Routine Maintenance</option>
+                                    <option value="installation">New Installation</option>
+                                    <option value="inspection">System Inspection</option>
+                                    <option value="other">Other - Describe Below</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="urgency" class="block text-sm font-medium text-gray-700 mb-1">Urgency Level</label>
+                                <select id="urgency" name="urgency" class="input-field">
+                                    <option value="routine">Routine - Schedule When Convenient</option>
+                                    <option value="soon">Need Service Soon (1-3 days)</option>
+                                    <option value="emergency">Emergency - ASAP (24/7)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="location" class="block text-sm font-medium text-gray-700 mb-1">Service Location</label>
+                                <input type="text" id="location" name="location" class="input-field" placeholder="Street address, city, ZIP">
+                            </div>
+                            <div>
+                                <label for="details" class="block text-sm font-medium text-gray-700 mb-1">Project Details *</label>
+                                <textarea id="details" name="details" rows="3" required class="input-field" placeholder="Describe your [SERVICE_NAME] needs, when you need service, and any specific requirements..."></textarea>
+                            </div>
+                            <button type="submit" class="cta-button w-full text-white px-6 py-3 rounded-lg text-lg font-bold mt-4 shadow-lg">
+                                Get Free Quote Now
+                            </button>
+                        </div>
+                    </form>
+                    <div id="message-box" class="mt-4 hidden p-3 rounded-lg text-white bg-primary-green font-semibold"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. FINAL CTA SECTION -->
+        <section class="py-20 bg-primary-green text-white text-center">
+            <div class="max-w-4xl mx-auto px-4">
+                <h3 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+                    Ready for Professional
+                    <span class="block">[SERVICE_NAME] Service?</span>
+                </h3>
+                <p class="text-xl md:text-2xl text-white font-light mb-8 max-w-2xl mx-auto leading-relaxed opacity-90">
+                    Don't let [SERVICE_NAME] issues wait! Get expert help now with our licensed professionals.
+                </p>
+
+                <!-- Trust Indicators -->
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8 mb-10">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-white mb-1">24/7</div>
+                        <div class="text-sm text-white opacity-75">Emergency Service</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-white mb-1">100%</div>
+                        <div class="text-sm text-white opacity-75">Satisfaction</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-white mb-1">Licensed</div>
+                        <div class="text-sm text-white opacity-75">Professionals</div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="tel:555-1234" class="bg-white text-primary-green px-12 py-5 rounded-xl text-xl font-bold border-2 border-primary-green shadow-xl">
+                        Call Emergency Line: (555) 123-4567
+                    </a>
+                    <a href="#contact" class="bg-white text-primary-green px-12 py-5 rounded-xl text-xl font-bold border-2 border-white hover:bg-white hover:border-white transform hover:-translate-y-1 transition-all duration-300 shadow-xl">
+                        Schedule Free Consultation
+                    </a>
+                </div>
+
+                <!-- Trust Signal -->
+                <p class="text-sm text-white mt-8 opacity-75">
+                    ✓ Licensed & Insured • ✓ Background Checked • ✓ Satisfaction Guaranteed
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <h5 class="text-lg font-bold text-primary-green mb-3">YourBusiness Pro</h5>
+                    <p class="text-gray-400 text-sm">Professional [SERVICE_NAME] services in [CITY/LOCATION]. Licensed, insured, and trusted by local residents.</p>
+                </div>
+                <!-- Services -->
+                <div>
+                    <h5 class="text-lg font-bold text-primary-green mb-3">Our Services</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Emergency [SERVICE_NAME]</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">[SERVICE_NAME] Maintenance</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">[SERVICE_NAME] Installation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">24/7 Service</a></li>
+                    </ul>
+                </div>
+                <!-- Service Areas -->
+                <div>
+                    <h5 class="text-lg font-bold text-primary-green mb-3">Service Areas</h5>
+                    <p class="text-gray-400 text-sm">Serving [CITY/LOCATION] and all surrounding areas with fast response times.</p>
+                </div>
+                <!-- Contact Info -->
+                <div>
+                    <h5 class="text-lg font-bold text-primary-green mb-3">Contact Us</h5>
+                    <p class="text-gray-400 text-sm">Call us 24/7:</p>
+                    <p class="text-xl font-bold text-white mb-2"><a href="tel:555-1234" class="hover:text-primary-green transition">(555) 123-4567</a></p>
+                    <a href="#contact" class="text-sm font-semibold text-primary-green hover:underline">Get free quote</a>
+                </div>
+            </div>
+
+            <!-- Copyright and SEO text -->
+            <div class="mt-8 pt-6 border-t border-gray-700 text-center text-sm text-gray-500">
+                &copy; 2024 YourBusiness Pro. All rights reserved. | <span class="text-primary-green">Licensed [SERVICE_NAME] Services in [CITY/LOCATION].</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Form Submission -->
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Stop the form from actually submitting
+
+            const form = event.target;
+            const name = form.elements['name'].value;
+            const service = form.elements['service'].value;
+            const messageBox = document.getElementById('message-box');
+
+            // Display success message
+            messageBox.textContent = `Thank you, ${name}! Your ${service} request has been sent. We'll contact you within 15 minutes with your free quote.`;
+            messageBox.classList.remove('hidden');
+
+            // Clear the form after a delay
+            setTimeout(() => {
+                form.reset();
+                messageBox.classList.add('hidden');
+            }, 5000);
+        }
+
+        // FAQ Accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqButtons = document.querySelectorAll('#faq button');
+
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isVisible = !answer.classList.contains('hidden');
+
+                    // Hide all answers
+                    faqButtons.forEach(btn => {
+                        btn.nextElementSibling.classList.add('hidden');
+                    });
+
+                    // Show clicked answer if it was hidden
+                    if (!isVisible) {
+                        answer.classList.remove('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

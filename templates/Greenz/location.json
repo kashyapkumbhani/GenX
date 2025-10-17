@@ -1,0 +1,493 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "page_title",
+    "meta_description",
+    "meta_keywords",
+    "geo_position",
+    "hero_cta_text",
+    "hero_subtitle",
+    "hero_title",
+    "local_info_title_left",
+    "local_info_content_left",
+    "local_info_title_right",
+    "local_info_content_right",
+    "testimonials_title",
+    "testimonials_main",
+    "testimonials_additional",
+    "location",
+    "faq_heading",
+    "faqs",
+    "service_area_title",
+    "service_area_description",
+    "contact_cta",
+    "services_section_title",
+    "services_section_description",
+    "stats_section_title",
+    "stats",
+    "hours_section_title",
+    "advantages_title",
+    "advantages",
+    "booking_section_title",
+    "booking_section_description",
+    "service_area_descriptions",
+    "final_cta_title",
+    "final_cta_description",
+    "final_cta_button_text",
+    "footer_description",
+    "location_section_title",
+    "location_section_description",
+    "footer_cta_text"
+  ],
+  "properties": {
+    "page_title": {
+      "type": "string",
+      "description": "The page title for the location-specific page, optimized for SEO using primary keyword and city from business data",
+      "examples": [
+        "{{ primary_keyword }} in {{ location.city }} | {{ business.name }}",
+        "Professional {{ primary_keyword }} Services in {{ location.city }}",
+        "{{ location.city }} {{ primary_keyword }} | {{ business.name }}",
+        "Best {{ primary_keyword }} in {{ location.city }} - {{ business.name }}"
+      ]
+    },
+  "meta_description": {
+    "description": "SEO meta description for the location page, using business data and location information",
+    "ai_prompt": "Create a compelling meta description for a location-specific service page. Use primary_keyword, business.category, location.city, and business contact info. Highlight local expertise, service quality, and location benefits. Include a call-to-action and keep it between 150-160 characters.",
+    "examples": [
+      "Professional {{ primary_keyword }} services in {{ location.city }}. Licensed {{ business.category }} experts. Same-day service available. Call {{ business.phone }} for free quote!",
+      "Trusted {{ primary_keyword }} serving {{ location.city }} residents. {{ business.name }} - licensed, insured, and locally owned. Book your service today!",
+      "{{ location.city }}'s top-rated {{ primary_keyword }} company. Fast, reliable {{ business.category }} service with satisfaction guarantee. Contact {{ business.name }} now!"
+    ]
+  },
+  "meta_keywords": {
+    "description": "Comma-separated keywords for SEO targeting location-specific searches using business data",
+    "ai_prompt": "Generate Unique relevant SEO keywords for a location-specific service page. Use primary_keyword, business.category, and location.city. Include service types, location variations, and related terms that potential customers might search for.",
+    "examples": [
+      "{{ primary_keyword }} {{ location.city }}, {{ business.category }} {{ location.city }}, {{ location.city }} {{ primary_keyword }}, local {{ business.category }}, {{ location.city }} services",
+      "{{ primary_keyword }} near me, {{ location.city }} {{ business.category }}, professional {{ primary_keyword }}, {{ location.city }} home services",
+      "{{ location.city }} {{ primary_keyword }}, emergency {{ business.category }}, {{ location.city }} repair services, local {{ primary_keyword }}"
+    ]
+  },
+  "geo_position": {
+    "description": "Geographic coordinates (latitude,longitude) for the location being served",
+    "ai_prompt": "Provide the geographic coordinates for the specific location city in latitude,longitude format. This helps with local SEO and geographic targeting for the service area.",
+    "examples": [
+      "{{ location.latitude }},{{ location.longitude }}",
+      "30.2672,-97.7431",
+      "40.7128,-74.0060"
+    ]
+  },
+  "hero_cta_text": {
+    "description": "Dynamic and unique CTA button text that varies for each location using primary keyword and city",
+    "ai_prompt": "Generate Unique a unique, compelling CTA button text that combines {{ primary_keyword }} and {{ location.city }}. Make it action-oriented, urgent, and location-specific. Vary the structure and wording to create uniqueness for each location while maintaining strong call-to-action appeal.",
+    "examples": [
+      "Book {{ location.city }} {{ primary_keyword }} Service",
+      "Get {{ primary_keyword }} Help in {{ location.city }}",
+      "Schedule {{ location.city }} {{ primary_keyword }} Today",
+      "Call {{ location.city }}'s Best {{ primary_keyword }}",
+      "Request {{ primary_keyword }} Quote in {{ location.city }}",
+      "Contact {{ location.city }} {{ primary_keyword }} Experts"
+    ]
+  },
+  "hero_subtitle": {
+    "description": "Dynamic and unique hero subtitle/paragraph that varies for each location using primary keyword, city, and business category",
+    "ai_prompt": "Generate Unique a unique, compelling hero subtitle paragraph that combines {{ primary_keyword }}, {{ location.city }}, and {{ business.category }}. Make it engaging, trustworthy, and location-specific. Vary the structure and messaging to create uniqueness for each location while maintaining professional tone and local appeal.",
+    "examples": [
+      "Trusted {{ primary_keyword }} experts serving {{ location.city }} with reliable {{ business.category }} solutions you can depend on.",
+      "{{ location.city }}'s premier {{ business.category }} specialists delivering exceptional {{ primary_keyword }} services to your doorstep.",
+      "Professional {{ primary_keyword }} services tailored for {{ location.city }} residents - quality {{ business.category }} work guaranteed.",
+      "Your local {{ business.category }} experts in {{ location.city }} - providing top-rated {{ primary_keyword }} services with a personal touch.",
+      "Serving {{ location.city }} with excellence - trusted {{ primary_keyword }} professionals for all your {{ business.category }} needs.",
+      "{{ location.city }}'s choice for reliable {{ business.category }} services - experienced {{ primary_keyword }} specialists ready to help."
+    ]
+  },
+  "hero_title": {
+    "description": "Dynamic and unique H2 title for the hero section, using business category and location city",
+    "ai_prompt": "Generate Unique a unique, compelling H2 title for the hero section that combines the {{ business.category }} and {{ location.city }}. Make it dynamic and engaging while maintaining SEO value. Vary the structure and wording to create uniqueness for each location while keeping the core message consistent. Use the business category and city name from the provided business data.",
+    "examples": [
+      "Expert {{ business.category }} Solutions in {{ location.city }}",
+      "{{ location.city }}'s Premier {{ business.category }} Specialists",
+      "Professional {{ business.category }} Services for {{ location.city }} Residents",
+      "Trusted {{ business.category }} Experts Serving {{ location.city }}",
+      "Quality {{ business.category }} Solutions in {{ location.city }}",
+      "{{ location.city }}'s Top-Rated {{ business.category }} Company"
+    ]
+  },
+  "local_info_title_left": {
+    "description": "Dynamic title for the left column of the local info section",
+    "ai_prompt": "Generate Unique a unique, compelling title for the left column of the local info section. Focus on local expertise, trust, and community connection. Use {{ business.name }}, {{ location.city }}, and {{ business.category }} to create location-specific titles that emphasize local knowledge and reliability.",
+    "examples": [
+      "Local Expertise You Can Trust",
+      "{{ location.city }}'s Trusted {{ business.category }} Experts",
+      "Community-Focused {{ business.category }} Service",
+      "Your Local {{ business.category }} Specialists",
+      "Neighborhood {{ business.category }} Professionals",
+      "{{ location.city }} {{ business.category }} Leaders"
+    ]
+  },
+  "local_info_content_left": {
+    "description": "Dynamic content for the left column of the local info section, focusing on local expertise and community connection",
+    "ai_prompt": "Generate Unique 3-4 paragraphs of unique content for the left column of the local info section. Focus on {{ business.name }}'s local expertise in {{ location.city }}, understanding of the community, experience with {{ business.category }} services, and commitment to {{ primary_keyword }} excellence. Emphasize local knowledge, community roots, and personalized service approach.",
+    "examples": [
+      "For over a decade, {{ business.name }} has been the trusted choice for {{ location.city }} residents seeking professional {{ business.category }} services. Our deep roots in the community mean we understand the unique lifestyle and property characteristics that make {{ location.city }} living special.\n\n{{ location.city }} combines historic charm with modern urban sophistication. From beautifully preserved brownstones to sleek high-rise condos, each property tells a story. Our experienced {{ primary_keyword }} team respects this diversity, providing tailored {{ business.category }} solutions that honor your home's character while delivering professional results.\n\nWhat truly sets us apart is our commitment to personalized {{ business.category }} service. We don't offer cookie-cutter solutions. Instead, we take the time to understand your specific needs, preferences, and constraints, ensuring every {{ primary_keyword }} project reflects the care and attention it deserves."
+    ]
+  },
+  "local_info_title_right": {
+    "description": "Dynamic title for the right column of the local info section",
+    "ai_prompt": "Generate Unique a unique, compelling title for the right column of the local info section. Focus on why local residents choose the business, customer benefits, and community preference. Use {{ location.city }}, {{ business.name }}, and {{ business.category }} to create location-specific titles that emphasize customer choice and satisfaction.",
+    "examples": [
+      "Why {{ location.city }} Residents Choose Us",
+      "What Makes {{ business.name }} Different",
+      "{{ location.city }}'s Preferred {{ business.category }} Choice",
+      "Customer-First {{ business.category }} Service",
+      "Why {{ location.city }} Trusts {{ business.name }}",
+      "The {{ business.name }} Advantage in {{ location.city }}"
+    ]
+  },
+  "local_info_content_right": {
+    "description": "Dynamic content for the right column of the local info section, focusing on customer benefits and community preference",
+    "ai_prompt": "Generate Unique 3-4 paragraphs of unique content for the right column of the local info section. Focus on why {{ location.city }} residents choose {{ business.name }}, customer benefits, flexible service, understanding of local challenges, and community commitment. Emphasize customer satisfaction, convenience, and the business's role in the {{ location.city }} community.",
+    "examples": [
+      "Busy professionals, growing families, and seasoned residents all find what they need with {{ business.name }}. Our flexible scheduling accommodates demanding work hours, while our local expertise ensures seamless coordination with building management and property requirements.\n\nWe understand the unique challenges of {{ location.city }} living - from navigating building access protocols to managing parking in busy urban environments. Our team makes these complexities invisible to you, delivering professional {{ business.category }} service with minimal disruption to your lifestyle.\n\nBeyond technical expertise, we bring genuine care to every project. {{ location.city }} isn't just a location to us - it's our community. We take pride in contributing to the neighborhood's reputation as a place where quality of life and professional service go hand in hand.\n\nWhen you choose {{ business.name }}, you're not just selecting a service provider - you're partnering with experienced {{ primary_keyword }} professionals who genuinely care about your satisfaction and the long-term well-being of our shared community."
+    ]
+  },
+  "testimonials_title": {
+    "description": "Dynamic title for the testimonials section header",
+    "ai_prompt": "Generate Unique a unique, compelling title for the testimonials section that incorporates {{ location.city }} and creates location-specific appeal. Focus on customer satisfaction, local community, and social proof. Vary the structure to create uniqueness for each location.",
+    "examples": [
+      "What {{ location.city }} Customers Say",
+      "{{ location.city }} Client Success Stories",
+      "Trusted by {{ location.city }} Residents",
+      "{{ location.city }} Customer Reviews",
+      "Why {{ location.city }} Chooses Us",
+      "Real {{ location.city }} Customer Experiences"
+    ]
+  },
+  "testimonials_main": {
+    "description": "Array of 3 main testimonial cards with quotes and customer attribution",
+    "ai_prompt": "Generate Unique 3 unique, compelling customer testimonials that feel authentic and location-specific. Each should include a realistic quote about {{ business.category }} services and {{ primary_keyword }} work, plus customer attribution with first name, last initial, and a {{ location.city }}-area location/building name. Make them diverse in tone and specific service aspects mentioned.",
+    "structure": [
+      {
+        "quote": "Customer testimonial text focusing on specific service experience",
+        "attribution": "- First Name L., Location/Building Name"
+      }
+    ],
+    "examples": [
+      [
+        {
+          "quote": "{{ business.name }} handled our {{ location.city }} {{ primary_keyword }} project perfectly. They were professional, punctual, and the results were amazing. Highly recommend for {{ location.city }} residents!",
+          "attribution": "- David M., Riverside Condos"
+        },
+        {
+          "quote": "As a busy professional in {{ location.city }}, I needed same-day {{ business.category }} service. They accommodated my schedule perfectly and the team was fantastic. The results exceeded my expectations!",
+          "attribution": "- Sarah K., Heights Plaza"
+        },
+        {
+          "quote": "The emergency {{ primary_keyword }} service saved the day when I needed urgent help in {{ location.city }}. They arrived within an hour and the results were incredible. {{ location.city }}'s best service team!",
+          "attribution": "- Michael R., Historic Downtown"
+        }
+      ]
+    ]
+  },
+   
+  "location": {
+    "description": "Location-specific data structure that matches service_areas from business_data.json",
+    "ai_prompt": "This represents the current location being Generate Uniqued from the service_areas array in business_data.json. Each location will have a city name that corresponds to one of the service areas.",
+    "structure": {
+      "city": "The city name from service_areas array (e.g., 'Austin', 'Round Rock', 'Cedar Park')",
+      "latitude": "Geographic latitude for the city",
+      "longitude": "Geographic longitude for the city"
+    },
+    "examples": [
+      {
+        "city": "Austin",
+        "latitude": "30.2672",
+        "longitude": "-97.7431"
+      },
+      {
+        "city": "Round Rock", 
+        "latitude": "30.5082",
+        "longitude": "-97.6789"
+      }
+    ]
+  },
+  "faq_heading": {
+    "type": "string",
+    "description": "Heading for the local FAQ section",
+    "word_count": "5-10",
+    "ai_prompt": "Create a heading for the FAQ section that emphasizes local {{ business.category }} services in {{ location.city }}. Make it location-specific and service-focused.",
+    "examples": [
+      "{{ location.city }} {{ business.category }} Services FAQ",
+      "Frequently Asked Questions About {{ business.primary_keyword }} in {{ location.city }}"
+    ]
+  },
+  "faqs": {
+    "type": "array",
+    "description": "Array of location-specific FAQ items with questions and answers",
+    "minItems": 5,
+    "maxItems": 8,
+    "items": {
+      "type": "object",
+      "properties": {
+        "question": {
+          "type": "string",
+          "description": "Location-specific FAQ question",
+          "word_count": "8-15",
+          "ai_prompt": "Write a location-specific question about {{ business.category }} services in {{ location.city }}. Focus on local concerns, service areas, scheduling, or unique aspects of serving this specific location."
+        },
+        "answer": {
+          "type": "string",
+          "description": "Detailed answer to the location-specific FAQ question",
+          "word_count": "25-45",
+          "ai_prompt": "Write a comprehensive answer that addresses the question about {{ business.category }} services in {{ location.city }}. Include local knowledge, specific service details, and reassurance about quality and reliability in this area."
+        }
+      }
+    },
+    "ai_prompt": "Generate Unique 5-8 location-specific FAQ items for {{ business.category }} services in {{ location.city }}. Focus on common local concerns such as same-day service availability, handling of local building types (condos, historic homes, etc.), service area coverage within the city, parking/access issues, specialized local needs, and what makes the service different for this specific location.",
+    "examples": [
+      [
+        {
+          "question": "Do you provide same-day {{ business.primary_keyword }} services in {{ location.city }}?",
+          "answer": "Yes! We offer same-day service for most {{ location.city }} locations, especially for urgent needs. Our local team can often accommodate same-day appointments when you call before noon. Emergency services are available 24/7 for immediate response in {{ location.city }}."
+        },
+        {
+          "question": "What makes your {{ business.category }} service different for {{ location.city }} residents?",
+          "answer": "We understand {{ location.city }} living and the specific needs of local residents. Our team knows local building types, parking situations, and access procedures. Plus, we're always just minutes away for emergencies and can work around your busy schedule."
+        },
+        {
+          "question": "What's your service area within {{ location.city }}?",
+          "answer": "We proudly serve all {{ location.city }} neighborhoods and surrounding areas. Our local knowledge helps us navigate efficiently and provide faster service times. For locations just outside our primary service area, contact us to discuss availability."
+        }
+      ]
+    ]
+  },
+  "service_area_title": {
+    "type": "string",
+    "description": "Heading for the service area section",
+    "word_count": "5-8",
+    "ai_prompt": "Create a compelling heading that emphasizes local community service for {{ business.category }} in {{ location.city }}. Use words like 'proudly serve', 'local communities', or 'neighborhoods' to show local commitment.",
+    "examples": [
+      "We Proudly Serve the Following Local Communities",
+      "{{ location.city }} Neighborhoods We Service",
+      "Local {{ location.city }} Areas We Serve",
+      "Serving {{ location.city }} and Surrounding Communities"
+    ]
+  },
+  "service_area_description": {
+    "type": "string",
+    "description": "Description text for the service area section",
+    "word_count": "12-20",
+    "ai_prompt": "Write a brief, inviting description that encourages residents of {{ location.city }} neighborhoods to contact for {{ business.category }} services. Include a call-to-action and emphasize local availability.",
+    "examples": [
+      "If you need professional {{ business.category }} services in any of these {{ location.city }} neighborhoods, contact us today!",
+      "Need {{ business.primary_keyword }} services in your {{ location.city }} area? We're here to help with fast, reliable service!",
+      "Serving {{ location.city }} residents with top-quality {{ business.category }} services. Call us for your neighborhood today!",
+      "Professional {{ business.category }} services available throughout {{ location.city }}. Contact us for immediate assistance!"
+    ]
+  },
+  "contact_cta": {
+    "type": "string",
+    "description": "Call-to-action message encouraging users to contact if their area isn't listed",
+    "word_count": "8-15",
+    "ai_prompt": "Write a friendly, encouraging call-to-action message for {{ location.city }} residents whose specific neighborhood isn't listed in the service areas. Emphasize availability confirmation and invite contact.",
+    "examples": [
+      "Don't see your area? Contact us to confirm availability →",
+      "Your neighborhood not listed? Reach out to check our service area →",
+      "Missing your area? Get in touch to verify coverage →",
+      "Don't see your location? Contact us for service availability →"
+    ]
+  },
+  "services_section_title": {
+     "type": "string",
+     "description": "Heading for the additional services section",
+     "word_count": "4-8",
+     "ai_prompt": "Write a compelling section heading that introduces additional services beyond the primary {{ business.category }} services. Make it professional and inviting for {{ location.city }} customers.",
+     "examples": [
+       "Other Professional Services We Provide",
+       "Additional Services for {{ location.city }} Residents",
+       "Complete {{ business.category }} Solutions We Offer",
+       "More Ways We Can Help You"
+     ]
+   },
+    "services_section_description": {
+      "type": "string",
+      "description": "Description text for the additional services section",
+      "word_count": "15-25",
+      "ai_prompt": "Write an engaging description that explains how {{ business.name }} offers comprehensive services beyond core {{ business.category }} work. Emphasize completeness and convenience for {{ location.city }} customers.",
+      "examples": [
+        "Beyond our core services, {{ business.name }} offers a comprehensive range of professional home and business services to meet all your {{ location.city }} needs.",
+        "{{ business.name }} provides complete {{ business.category }} solutions plus additional services to handle all your {{ location.city }} property needs efficiently.",
+        "From {{ business.primary_keyword }} to comprehensive maintenance, {{ business.name }} is your one-stop solution for all {{ location.city }} service needs.",
+        "{{ business.name }} goes beyond basic {{ business.category }} work, offering complete solutions for {{ location.city }} homes and businesses."
+      ]
+    },
+    "stats_section_title": {
+      "type": "string",
+      "description": "Heading for the local statistics section",
+      "word_count": "3-6",
+      "ai_prompt": "Write a compelling section heading for local service statistics in {{ location.city }}. Include the location name and emphasize service quality or performance metrics.",
+      "examples": [
+        "{{ location.city }} Services Statistics",
+        "Our {{ location.city }} Performance",
+        "{{ location.city }} Service Excellence",
+        "Why {{ location.city }} Chooses Us"
+      ]
+    },
+    "stats": {
+      "type": "array",
+      "description": "Array of exactly 4 service statistics for the location",
+      "minItems": 4,
+      "maxItems": 4,
+      "ai_prompt": "Generate Unique exactly 4 distinct service statistics for {{ business.category }} services in {{ location.city }}. Each statistic should be unique and cover different aspects: satisfaction rate, projects completed, customer rating, and response time. Ensure all 4 statistics are realistic and impressive.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "description": "Statistical value (percentage, number, rating, etc.)",
+            "word_count": "1-3",
+            "ai_prompt": "Generate Unique a realistic, impressive statistic value for {{ business.category }} services in {{ location.city }}. Use percentages (85-98%), numbers (500-5000+), ratings (4.5-5.0★), or time periods (24hrs, same day).",
+            "examples": ["95%", "3,200+", "4.8★", "24hrs"]
+          },
+          "title": {
+            "type": "string",
+            "description": "Title for the statistic",
+            "word_count": "2-4",
+            "ai_prompt": "Write a clear, professional title for a {{ business.category }} service statistic in {{ location.city }}. Focus on satisfaction, completion, rating, or response metrics.",
+            "examples": ["Service Satisfaction", "Projects Completed", "Average Rating", "Response Time"]
+          },
+          "description": {
+            "type": "string",
+            "description": "Description explaining the statistic",
+            "word_count": "8-15",
+            "ai_prompt": "Write a brief description explaining what this statistic represents for {{ business.category }} services in {{ location.city }}. Be specific and credible.",
+            "examples": [
+              "Of {{ location.city }} residents rate our service as excellent or outstanding",
+              "Total projects we've completed in {{ location.city }} this year",
+              "Customer satisfaction rating from {{ location.city }} residents on Google & Yelp",
+              "Average response time for service requests in {{ location.city }}"
+            ]
+          }
+        }
+      },
+      "examples": [
+        {
+          "value": "92%",
+          "title": "Service Satisfaction",
+          "description": "Of {{ location.city }} residents rate our service as excellent or outstanding"
+        },
+        {
+          "value": "2,800+",
+          "title": "Projects Completed",
+          "description": "Total projects we've completed in {{ location.city }} this year"
+        },
+        {
+          "value": "4.9★",
+          "title": "Average Rating",
+          "description": "Customer satisfaction rating from {{ location.city }} residents on Google & Yelp"
+        },
+        {
+          "value": "Same Day",
+          "title": "Response Time",
+          "description": "Average response time for service requests in {{ location.city }}"
+        }
+      ]
+    },
+    "hours_section_title": {
+      "type": "string",
+      "description": "Title for the service hours and availability section",
+      "word_count": "4-8",
+      "ai_prompt": "Create a professional, location-specific title for the service hours and availability section for {{ business.category }} services in {{ location.city }}. Include the location name and focus on hours, availability, or scheduling.",
+      "examples": ["{{ location.city }} Service Hours & Availability", "{{ business.category }} Hours in {{ location.city }}", "{{ location.city }} {{ business.category }} Scheduling", "Service Hours for {{ location.city }} Residents"]
+    },
+    "advantages_title": {
+      "type": "string",
+      "description": "Title for the location-specific advantages section",
+      "word_count": "2-4",
+      "ai_prompt": "Create a compelling title for the advantages of choosing {{ business.category }} services in {{ location.city }}. Focus on location benefits, local advantages, or area-specific perks.",
+      "examples": ["{{ location.city }} Advantages", "Local Benefits", "Area Perks", "{{ location.city }} Service Benefits"]
+    },
+    "advantages": {
+      "type": "array",
+      "description": "Array of location-specific advantages and benefits",
+      "items": {
+        "type": "string",
+        "description": "Individual advantage or benefit statement",
+        "word_count": "4-8",
+        "ai_prompt": "Write a specific advantage or benefit of choosing {{ business.category }} services in {{ location.city }}. Focus on local perks, extended hours, emergency services, or area-specific benefits. Keep it concise and compelling.",
+        "examples": ["Extended weekday hours for professionals", "Weekend availability for residential clients", "24/7 emergency service coverage", "Same-day service for urgent needs", "Local {{ location.city }} expertise", "Familiar with {{ location.city }} regulations"]
+       }
+     },
+     "booking_section_title": {
+       "type": "string",
+       "description": "Title for the booking/contact section",
+       "word_count": "4-8",
+       "ai_prompt": "Create a compelling call-to-action title for booking {{ business.category }} services in {{ location.city }}. Focus on action words like 'Book', 'Schedule', 'Get', or 'Contact' and include the location name.",
+       "examples": ["Book Your {{ location.city }} Service", "Schedule {{ business.category }} in {{ location.city }}", "Get {{ location.city }} {{ business.category }} Service", "Contact {{ location.city }} {{ business.category }} Experts"]
+     },
+     "booking_section_description": {
+       "type": "string",
+       "description": "Description for the booking/contact section",
+       "word_count": "15-25",
+       "ai_prompt": "Write a compelling description encouraging customers to book {{ business.category }} services in {{ location.city }}. Mention free quotes, no-obligation estimates, priority scheduling, or local expertise. Keep it persuasive and location-specific.",
+       "examples": ["Get a free, no-obligation quote for professional {{ business.category }} services in {{ location.city }}. Mention this page for priority scheduling.", "Contact our {{ location.city }} {{ business.category }} experts for immediate service. Free estimates and same-day availability.", "Schedule your {{ business.category }} service in {{ location.city }} today. Local expertise with guaranteed satisfaction."]
+     },
+     "service_area_descriptions": {
+       "type": "string",
+       "description": "Description of service area and business credentials",
+       "word_count": "12-20",
+       "ai_prompt": "Write a professional description highlighting that the business proudly serves {{ location.city }} and surrounding areas. Include credentials like licensed, insured, and locally owned. Make it location-specific and trustworthy.",
+       "examples": ["Proudly serving {{ location.city }} and surrounding areas. Licensed, insured, and locally owned.", "Your trusted {{ business.category }} serving {{ location.city }} and nearby communities. Fully licensed and insured.", "Locally owned {{ business.category }} proudly serving {{ location.city }} residents. Licensed, bonded, and insured.", "Professional {{ business.category }} services for {{ location.city }} and surrounding areas. Licensed and fully insured."]
+     },
+     "final_cta_title": {
+       "type": "string",
+       "description": "Final call-to-action section title",
+       "word_count": "6-10",
+       "ai_prompt": "Create a compelling final call-to-action title for {{ business.category }} services in {{ location.city }}. Focus on readiness, professionalism, and action. Include the location name and service type.",
+       "examples": ["Ready for Professional {{ business.category }} in {{ location.city }}?", "Need Expert {{ business.category }} Services in {{ location.city }}?", "{{ location.city }} {{ business.category }} Services Ready When You Are", "Professional {{ location.city }} {{ business.category }} at Your Service"]
+     },
+     "final_cta_description": {
+       "type": "string",
+       "description": "Final call-to-action section description",
+       "word_count": "15-25",
+       "ai_prompt": "Write a compelling description for the final CTA section highlighting satisfied customers in {{ location.city }} who chose {{ business.name }} for {{ business.category }} services. Mention community trust and service excellence.",
+       "examples": ["Join hundreds of satisfied {{ location.city }} residents who've chosen {{ business.name }} for their {{ business.category }} needs.", "Discover why {{ location.city }} homeowners trust {{ business.name }} for professional {{ business.category }} services.", "{{ location.city }} residents choose {{ business.name }} for reliable, professional {{ business.category }} solutions.", "Experience the {{ business.category }} service that {{ location.city }} residents recommend to their neighbors."]
+     },
+     "final_cta_button_text": {
+       "type": "string",
+       "description": "Primary CTA button text",
+       "word_count": "3-6",
+       "ai_prompt": "Create compelling call-to-action button text for {{ business.category }} services. Focus on free quotes, estimates, or immediate action. Keep it action-oriented and benefit-focused.",
+       "examples": ["Get Your Free Quote", "Schedule Free Estimate", "Call Now for Quote", "Get Free Consultation", "Book Your Service"]
+     },
+     "footer_description": {
+       "type": "string",
+       "description": "Footer description highlighting business expertise and service area",
+       "word_count": "10-15 words",
+       "ai_prompt": "Create a professional footer description for {{ business.name }} emphasizing local expertise in {{ business.category }} services. Mention serving {{ location.city }} and surrounding communities. Keep it trustworthy and professional.",
+       "examples": ["Local experts in professional plumbing. Proudly serving Austin and surrounding communities.", "Trusted HVAC specialists serving Round Rock and nearby areas with professional expertise.", "Professional electrical services for Georgetown residents and surrounding communities."]
+     },
+     "location_section_title": {
+       "type": "string",
+       "description": "Footer location section title showing the city name",
+       "word_count": "1-3 words",
+       "ai_prompt": "Use the city name {{ location.city }} as the location section title in the footer. Keep it simple and direct.",
+       "examples": ["Austin", "Round Rock", "Cedar Park", "Georgetown", "Pflugerville"]
+     },
+     "location_section_description": {
+       "type": "string",
+       "description": "Footer location section description highlighting service types and availability",
+       "word_count": "12-18 words",
+       "ai_prompt": "Create a compelling description for {{ business.category }} services in {{ location.city }}. Mention specific property types (homes, condos, offices) and service availability (same-day, emergency, etc.). Keep it professional and service-focused.",
+       "examples": ["Professional plumbing services for homes, condos, and offices in Austin. Same-day service available.", "Expert HVAC solutions for residential and commercial properties in Round Rock. Emergency service available.", "Reliable electrical services for homes and businesses in Cedar Park. Licensed and insured professionals."]
+     },
+     "footer_cta_text": {
+       "type": "string",
+       "description": "Footer call-to-action link text for requesting services",
+       "word_count": "3-6 words",
+       "ai_prompt": "Create compelling call-to-action text for requesting {{ business.category }} services in {{ location.city }}. Focus on action words like 'Request', 'Schedule', 'Get' combined with the location and service type. Keep it concise and action-oriented.",
+       "examples": ["Request Austin service", "Schedule Round Rock service", "Get Cedar Park quote", "Book Georgetown service", "Request Pflugerville estimate"]
+     }
+   }
+}

@@ -1,0 +1,123 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "location_services_description",
+    "location_additional_services_descriptions",
+    "location_about",
+    "location_why_choose",
+    "location_contact_cta",
+    "location_expertise_description",
+    "location_response_description",
+    "location_quality_description",
+    "location_testimonials",
+    "location_nearby_areas_description",
+    "location_emergency_services",
+    "location_service_guarantee",
+    "geo_position"
+  ],
+  "properties": {
+    "location_services_description": {
+      "type": "string",
+      "description": "A detailed description of the primary service offered in this specific location",
+      "examples": [
+        "Our professional plumbing services in Austin are tailored to address the unique plumbing challenges faced by local residents. From dealing with hard water issues common in Central Texas to handling older plumbing systems in historic neighborhoods, our experienced team provides comprehensive solutions with attention to detail."
+      ]
+    },
+    "location_additional_services_descriptions": {
+      "type": "array",
+      "description": "Descriptions for each additional service offered in this specific location",
+      "items": {
+        "type": "string",
+        "description": "Description of an additional service in this location"
+      },
+      "examples": [
+        [
+          "Our Austin emergency plumbing team is available 24/7 to address urgent issues throughout the city and surrounding areas. We understand the local infrastructure and can quickly respond to emergencies in any Austin neighborhood.",
+          "Austin homes often face unique drain challenges due to local soil conditions and tree root intrusions. Our specialized drain cleaning services use advanced equipment to diagnose and resolve these location-specific issues.",
+          "Water heater installation in Austin requires knowledge of local water quality and building codes. Our local experts will help you select and install the perfect water heater system that meets both your needs and local regulations."
+        ]
+      ]
+    },
+    "location_about": {
+      "type": "string",
+      "description": "Information about the business's presence and experience in this specific location",
+      "examples": [
+        "<p>Since establishing our Austin branch in 2005, we've become deeply familiar with the unique plumbing challenges faced by homeowners and businesses in this vibrant city. Our local team of Austin-based plumbers has extensive experience working with everything from historic homes in Clarksville to modern condos downtown.</p><p>We understand Austin's water systems, local building codes, and common plumbing issues that affect properties in different neighborhoods. This local expertise allows us to provide more efficient, effective solutions tailored to Austin's specific needs.</p><p>As active members of the Austin community, we're committed to providing exceptional service to our neighbors while adhering to the highest standards of quality and professionalism.</p>"
+      ]
+    },
+    "location_why_choose": {
+      "type": "string",
+      "description": "Reasons why customers in this location should choose this business",
+      "examples": [
+        "<h3>Local Expertise</h3><p>Our team has extensive knowledge of Austin's plumbing systems, water quality issues, and building codes.</p><h3>Fast Response Times</h3><p>With our local presence, we can reach any Austin neighborhood quickly, especially important for emergency situations.</p><h3>Community Reputation</h3><p>We've built a strong reputation in Austin through years of reliable service, as evidenced by our hundreds of positive reviews from local customers.</p><h3>Tailored Solutions</h3><p>We understand the specific plumbing challenges faced by Austin residents and offer customized solutions that address these unique needs.</p>"
+      ]
+    },
+    "location_contact_cta": {
+      "type": "string",
+      "description": "A location-specific call-to-action encouraging visitors to contact the business",
+      "examples": [
+        "Need a reliable plumber in Austin? Contact our local team today for prompt, professional service tailored to your neighborhood's specific plumbing needs. We're familiar with Austin's unique plumbing challenges and ready to provide effective solutions."
+      ]
+    },
+    "location_expertise_description": {
+      "type": "string",
+      "description": "Description of local expertise and knowledge",
+      "examples": [
+        "Our team has deep knowledge of local building codes, water systems, and common issues specific to this area. We understand the unique challenges faced by homeowners and businesses in this community."
+      ]
+    },
+    "location_response_description": {
+      "type": "string",
+      "description": "Description of response times and availability in this location",
+      "examples": [
+        "With our local presence, we can respond quickly to service calls throughout the area. Our team is strategically positioned to provide fast, efficient service when you need it most."
+      ]
+    },
+    "location_quality_description": {
+      "type": "string",
+      "description": "Description of quality standards and guarantees for this location",
+      "examples": [
+        "We maintain the highest quality standards in all our work, using premium materials and proven techniques. Every job comes with our satisfaction guarantee and ongoing support."
+      ]
+    },
+    "location_testimonials": {
+      "type": "array",
+      "description": "Customer testimonials specific to this location",
+      "items": {
+        "type": "object",
+        "properties": {
+          "text": {"type": "string"},
+          "author": {"type": "string"}
+        }
+      },
+      "examples": [
+        [
+          {"text": "Excellent service and very professional. They solved our plumbing issue quickly and efficiently.", "author": "Sarah M."},
+          {"text": "Highly recommend! They were punctual, knowledgeable, and reasonably priced.", "author": "Mike R."}
+        ]
+      ]
+    },
+    "location_nearby_areas_description": {
+      "type": "string",
+      "description": "Description of nearby areas served from this location",
+      "examples": [
+        "In addition to serving the main city area, we also provide services to surrounding communities and neighborhoods. Our coverage area includes both residential and commercial properties throughout the region."
+      ]
+    },
+    "location_emergency_services": {
+      "type": "string",
+      "description": "Description of emergency services available in this location",
+      "examples": [
+        "Our emergency response team is available 24/7 to handle urgent situations. We understand that plumbing emergencies don't wait for business hours, so we're always ready to help when you need us most."
+      ]
+    },
+    "location_service_guarantee": {
+      "type": "string",
+      "description": "Information about service guarantees and warranties for this location",
+      "examples": [
+        "We stand behind all our work with comprehensive warranties and guarantees. If you're not completely satisfied with our service, we'll make it right. Your satisfaction is our top priority."
+      ]
+    }
+  }
+}

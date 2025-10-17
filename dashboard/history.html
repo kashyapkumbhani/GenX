@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Generation History - Business Site Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        {% include 'templates/components/sidebar.html' %}
+        
+        <main class="content">
+            <h1>Generation History</h1>
+            <p>View your previously generated websites.</p>
+            
+            <div class="history-container">
+                {% if history %}
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Version</th>
+                                <th>Business Name</th>
+                                <th>Website URL</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in history %}
+                                <tr>
+                                    <td>{{ item.version }}</td>
+                                    <td>{{ item.business_name }}</td>
+                                    <td>
+                                        {% if item.website_url != 'N/A' %}
+                                            <a href="{{ item.website_url }}" target="_blank">{{ item.website_url }}</a>
+                                        {% else %}
+                                            N/A
+                                        {% endif %}
+                                    </td>
+                                    <td>{{ item.timestamp }}</td>
+                                    <td>
+                                        <a href="{{ item.path }}" target="_blank" class="btn-view">View</a>
+                                        <a href="/download_version/{{ item.version }}" class="btn-download">Download ZIP</a>
+                                        <button onclick="deleteVersion({{ item.version }})" class="btn-delete">Delete</button>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <div class="empty-state">
+                        <p>No sites have been generated yet.</p>
+                        <a href="{{ url_for('dashboard') }}" class="btn">Generate Your First Site</a>
+                    </div>
+                {% endif %}
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+    <script>
+        function deleteVersion(version) {
+            if (confirm(`Are you sure you want to delete version ${version}? This action cannot be undone.`)) {
+                fetch(`/delete_version/${version}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        alert(data.message);
+                        location.reload(); // Refresh the page to update the list
+                    } else {
+                        alert('Error: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while deleting the version.');
+                });
+            }
+        }
+    </script>
+</body>
+</html>

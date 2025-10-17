@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Business Site Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        {% include 'templates/components/sidebar.html' %}
+        
+        <main class="content">
+            <h1>Settings</h1>
+            <p>Manage your API keys and application settings.</p>
+            
+            <div class="settings-container">
+                <h2>Gemini API Keys</h2>
+                <p>Manage your Gemini API keys for content generation. Add multiple keys for better rate limiting and redundancy.</p>
+                
+                <form id="apiKeyForm" class="api-key-form">
+                    <div id="apiKeyContainer">
+                        <!-- API keys will be dynamically loaded here -->
+                    </div>
+                    
+                    <div class="add-key-section">
+                        <button type="button" id="addApiKeyBtn" class="btn-add-key">
+                            <span class="plus-icon">+</span>
+                            Add API Key
+                        </button>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="submit" class="btn-save">Save API Keys</button>
+                    </div>
+                </form>
+                
+                <div class="api-key-info">
+                    <h3>API Key Information</h3>
+                    <ul>
+                        <li><strong>Primary Key:</strong> Used as the default for content generation</li>
+                        <li><strong>Additional Keys:</strong> Used for rate limiting and redundancy</li>
+                        <li><strong>Testing:</strong> Click "Test" to verify each key works properly</li>
+                        <li><strong>Security:</strong> Keys are stored securely in your environment file</li>
+                    </ul>
+                    <p><strong>Note:</strong> You need at least one valid API key to generate content. Get your API keys from the <a href="https://makersuite.google.com/app/apikey" target="_blank">Google AI Studio</a>.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/settings.js') }}"></script>
+</body>
+</html>

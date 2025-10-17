@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ business.name }} - {{ primary_keyword }} in {{ location.city }}, {{ location.state }}</title>
+    <meta name="description" content="{{ business.name }} provides professional {{ primary_keyword }} services in {{ location.city }}, {{ location.state }}. Contact us today for reliable service!">
+    <style>
+       
+        
+        /* Base styles */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --dark-bg: #343a40;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav li {
+            margin-left: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* Hero section */
+        .hero {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+        }
+        
+        /* Main content */
+        main {
+            padding: 3rem 0;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Services */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .service-card h3 {
+            color: var(--secondary-color);
+            margin-top: 0;
+        }
+        
+        /* Locations */
+        .locations {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .location-card {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .location-card a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        /* Contact */
+        .contact-info {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            padding: 2rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+            }
+            
+            nav li {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Additional styles for location page */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .feature h3 {
+            color: var(--secondary-color);
+            margin-top: 0;
+        }
+        
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            font-style: italic;
+        }
+        
+        .testimonial .author {
+            font-weight: bold;
+            text-align: right;
+            margin-top: 1rem;
+        }
+        
+        .service-areas-content {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            padding: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .contact-form {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        /* Emergency services styles */
+        .emergency-content {
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 1rem 0;
+        }
+        
+        .emergency-info h3 {
+            color: #856404;
+            margin-top: 0;
+        }
+        
+        .emergency-contact {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+        
+        .btn-emergency {
+            background-color: #dc3545;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 1rem 2rem;
+        }
+        
+        .btn-emergency:hover {
+            background-color: #c82333;
+        }
+        
+        /* Service guarantee styles */
+        .guarantee-content {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            padding: 2rem;
+        }
+        
+        .guarantee-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .guarantee-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .guarantee-item h4 {
+            color: var(--secondary-color);
+            margin-top: 0;
+        }
+ 
+    </style>
+ 
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">{{ business.name }}</div>
+            <nav>
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#locations">Locations</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>{{ primary_keyword }} in {{ location.city }}, {{ location.state }}</h1>
+            <p>{{ business.name }} - Your trusted {{ primary_keyword }} serving {{ location.city }} and surrounding areas</p>
+            <a href="#contact" class="btn">Contact Us Today</a>
+        </div>
+    </section>
+    
+    <main class="container">
+        <section id="services">
+            <h2>{{ primary_keyword }} Services in {{ location.city }}</h2>
+            <div class="services">
+                <div class="service-card">
+                    <h3>{{ primary_keyword }} in {{ location.city }}</h3>
+                    <p>{{ content.location_services_description }}</p>
+                </div>
+                
+                {% for service in additional_services %}
+                <div class="service-card">
+                    <h3>{{ service }} in {{ location.city }}</h3>
+                    <p>{{ content.location_additional_services_descriptions[loop.index0] }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        
+        <section id="about">
+            <h2>About Our {{ location.city }} {{ primary_keyword }} Services</h2>
+            <div class="about-content">
+                {{ content.location_about | safe }}
+            </div>
+        </section>
+        
+        <section id="why-choose-us">
+            <h2>Why Choose {{ business.name }} in {{ location.city }}</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>Local Expertise</h3>
+                    <p>{{ content.location_expertise_description }}</p>
+                </div>
+                <div class="feature">
+                    <h3>Fast Response</h3>
+                    <p>{{ content.location_response_description }}</p>
+                </div>
+                <div class="feature">
+                    <h3>Quality Guarantee</h3>
+                    <p>{{ content.location_quality_description }}</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="testimonials">
+            <h2>{{ location.city }} Customer Reviews</h2>
+            <div class="testimonials">
+                {% if content.location_testimonials %}
+                    {% for testimonial in content.location_testimonials %}
+                    <div class="testimonial">
+                        <p>"{{ testimonial.text }}"</p>
+                        <p class="author">- {{ testimonial.author }}, {{ location.city }}</p>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="testimonial">
+                        <p>"{{ business.name }} provided excellent {{ primary_keyword }} service in {{ location.city }}. I highly recommend them!"</p>
+                        <p class="author">- Satisfied Customer, {{ location.city }}</p>
+                    </div>
+                {% endif %}
+            </div>
+        </section>
+        
+        <section id="service-areas">
+            <h2>Areas We Serve Near {{ location.city }}</h2>
+            <div class="service-areas-content">
+                <p>{{ content.location_nearby_areas_description }}</p>
+            </div>
+        </section>
+        
+        <section id="contact">
+            <h2>Contact Our {{ location.city }} Team</h2>
+            <div class="contact-info">
+                <div class="contact-details">
+                    <p><strong>Phone:</strong> {{ business.phone }}</p>
+                    <p><strong>Email:</strong> {{ business.email }}</p>
+                    <p><strong>Address:</strong> {{ business.address }}, {{ business.city }}, {{ business.state }} {{ business.zipCode }}</p>
+                    <p>{{ content.location_contact_cta }}</p>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>Send us a message</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+        
+        <section id="emergency-services">
+            <h2>Emergency {{ primary_keyword }} Services in {{ location.city }}</h2>
+            <div class="emergency-content">
+                <div class="emergency-info">
+                    <h3>24/7 Emergency Response</h3>
+                    <p>{{ content.location_emergency_services }}</p>
+                    <div class="emergency-contact">
+                        <p><strong>Emergency Hotline:</strong> {{ business.phone }}</p>
+                        <a href="tel:{{ business.phone }}" class="btn btn-emergency">Call Now for Emergency Service</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="service-guarantee">
+            <h2>Our Service Guarantee in {{ location.city }}</h2>
+            <div class="guarantee-content">
+                <p>{{ content.location_service_guarantee }}</p>
+                <div class="guarantee-features">
+                    <div class="guarantee-item">
+                        <h4>100% Satisfaction Guaranteed</h4>
+                        <p>We're not satisfied until you are completely happy with our work.</p>
+                    </div>
+                    <div class="guarantee-item">
+                        <h4>Licensed & Insured</h4>
+                        <p>All our technicians are fully licensed and our work is fully insured.</p>
+                    </div>
+                    <div class="guarantee-item">
+                        <h4>Upfront Pricing</h4>
+                        <p>No hidden fees or surprise charges - you'll know the cost before we start.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="why-choose">
+            <h2>Why Choose {{ business.name }} in {{ location.city }}</h2>
+            <div class="about-content">
+                {{ content.location_why_choose | safe }}
+            </div>
+        </section>
+        
+        <section id="service-areas">
+            <h2>Other Areas We Serve</h2>
+            <div class="locations">
+                <div class="location-card">
+                    <a href="./index.html">Main Service Page</a>
+                </div>
+                {% for area in service_areas %}
+                    {% if area.city != location.city %}
+                    <div class="location-card">
+                        <a href="./{{ area.city|lower|replace(' ', '-') }}.html">
+                            {% if area.state %}{{ area.city }}, {{ area.state }}{% else %}{{ area.city }}{% endif %}
+                        </a>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; {{ current_year }} {{ business.name }}. All rights reserved.</p>
+            <p>{{ business.address }}, {{ business.city }}, {{ business.state }} {{ business.zipCode }}</p>
+            <p>Phone: {{ business.phone }} | Email: {{ business.email }}</p>
+        </div>
+    </footer>
+</body>
+</html>

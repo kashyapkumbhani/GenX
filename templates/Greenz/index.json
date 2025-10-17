@@ -1,0 +1,699 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "page_title",
+    "meta_description",
+    "meta_keywords",
+    "geo_position",
+    "hero_heading",
+    "hero_subheading",
+    "hero_cta",
+    "why_us_heading",
+    "benefit_1_title",
+    "benefit_1_description",
+    "benefit_2_title",
+    "benefit_2_description",
+    "benefit_3_title",
+    "benefit_3_description",
+    "benefit_4_title",
+    "benefit_4_description",
+    "why_us_cta",
+    "process_heading",
+    "step_1_title",
+    "step_1_description",
+    "step_2_title",
+    "step_2_description",
+    "step_3_title",
+    "step_3_description",
+    "communities_heading",
+    "communities_description",
+    "communities_contact_cta",
+    "testimonials_heading",
+    "testimonial_1_text",
+    "testimonial_1_author",
+    "testimonial_2_text",
+    "testimonial_2_author",
+    "testimonial_3_text",
+    "testimonial_3_author",
+    "faq_heading",
+    "faqs",
+    "guarantee_heading",
+    "guarantee_description",
+    "guarantee_tagline",
+    "expertise_heading",
+    "expertise_description",
+    "expertise_1_title",
+    "expertise_1_description",
+    "expertise_2_title",
+    "expertise_2_description",
+    "expertise_3_title",
+    "expertise_3_description",
+    "expertise_4_title",
+    "expertise_4_description",
+    "expertise_cta_heading",
+    "expertise_cta_button",
+    "contact_heading",
+    "contact_description",
+    "services_section_title",
+    "service_1_title",
+    "service_1_description",
+    "service_2_title",
+    "service_2_description",
+    "service_3_title",
+    "service_3_description",
+    "closing_cta_heading",
+    "closing_cta_text",
+    "closing_cta_button",
+    "footer_company_description",
+    "footer_service_details",
+    "footer_copyright"
+  ],
+  "properties": {
+    "contact_heading": {
+      "type": "string",
+      "description": "Main heading for the contact section",
+      "word_count": "5-8 words",
+      "ai_prompt": "Create a compelling heading for the contact section that encourages potential customers to request a quote.",
+      "examples": [
+        "Get a Fast, Free Quote Now"
+      ]
+    },
+    "contact_description": {
+      "type": "string",
+      "description": "Description paragraph for the contact section",
+      "word_count": "15-25 words",
+      "ai_prompt": "Write a brief paragraph describing what information customers should provide when contacting for a quote and what they can expect.",
+      "examples": [
+        "Tell us about your {{ business.category }} needs (item type, specific requirements, location) and we will get back to you with a precise estimate within the hour."
+      ]
+    },
+    "expertise_heading": {
+      "type": "string",
+      "description": "Heading for the expertise section",
+      "word_count": "5-10",
+      "ai_prompt": "Create a compelling heading for a section about specialized expertise for a {{ business.category }} service in {{ business.city }}.",
+      "examples": [
+        "Expert Service: Our {{ business.primary_keyword }} Expertise in {{ business.city }}"
+      ]
+    },
+    "expertise_description": {
+      "type": "string",
+      "description": "Description paragraph for the expertise section",
+      "word_count": "30-40 words",
+      "ai_prompt": "Write a brief paragraph describing the specialized expertise of the {{ business.category }} service, emphasizing unique approaches and care for different customer needs.",
+      "examples": [
+        "Every {{ business.primary_keyword }} project is unique. We are highly trained in handling all aspects of {{ business.category }} and applying specific techniques to ensure maximum quality and lasting results for our customers in {{ business.city }}."
+      ]
+    },
+    "expertise_1_title": {
+      "type": "string",
+      "description": "Title for the first expertise card",
+      "word_count": "2-4 words",
+      "ai_prompt": "Create a short, impactful title for expertise in {{ business.category }} services.",
+      "examples": [
+        "Expert {{ business.primary_keyword }}"
+      ]
+    },
+    "expertise_1_description": {
+      "type": "string",
+      "description": "Description for the first expertise card",
+      "word_count": "15-25 words",
+      "ai_prompt": "Write a brief description highlighting the expertise in {{ business.category }} services for {{ business.primary_keyword }}.",
+      "examples": [
+        "Professional {{ business.primary_keyword }} services with attention to detail and quality results. Using industry-leading techniques for optimal outcomes."
+      ]
+    },
+    "expertise_2_title": {
+      "type": "string",
+      "description": "Title for the second expertise card",
+      "word_count": "2-4 words",
+      "ai_prompt": "Create a short, impactful title for expertise in {{ business.category }} protection and maintenance.",
+      "examples": [
+        "Quality Protection"
+      ]
+    },
+    "expertise_2_description": {
+      "type": "string",
+      "description": "Description for the second expertise card",
+      "word_count": "15-25 words",
+      "ai_prompt": "Write a brief description highlighting the expertise in providing long-lasting {{ business.category }} solutions.",
+      "examples": [
+        "Apply professional {{ business.category }} techniques to ensure lasting results, keeping your {{ business.primary_keyword }} in excellent condition for longer."
+      ]
+    },
+    "expertise_3_title": {
+      "type": "string",
+      "description": "Title for the third expertise card",
+      "word_count": "2-4 words",
+      "ai_prompt": "Create a short, impactful title for expertise in health and safety aspects of {{ business.category }} services.",
+      "examples": [
+        "Health & Safety"
+      ]
+    },
+    "expertise_3_description": {
+      "type": "string",
+      "description": "Description for the third expertise card",
+      "word_count": "15-25 words",
+      "ai_prompt": "Write a brief description highlighting the health and safety benefits of professional {{ business.category }} services.",
+      "examples": [
+        "Our {{ business.primary_keyword }} services prioritize health and safety, using industry-approved methods that create a better, healthier environment for your home or business."
+      ]
+    },
+    "expertise_4_title": {
+      "type": "string",
+      "description": "Title for the fourth expertise card",
+      "word_count": "2-4 words",
+      "ai_prompt": "Create a short, impactful title for expertise in emergency {{ business.category }} services.",
+      "examples": [
+        "Emergency Services"
+      ]
+    },
+    "expertise_4_description": {
+      "type": "string",
+      "description": "Description for the fourth expertise card",
+      "word_count": "15-25 words",
+      "ai_prompt": "Write a brief description highlighting the expertise in emergency {{ business.category }} services.",
+      "examples": [
+        "Fast response for urgent {{ business.primary_keyword }} needs. Our team quickly addresses emergency situations with professional solutions in {{ business.city }}."
+      ]
+    },
+    "expertise_cta_heading": {
+      "type": "string",
+      "description": "Heading for the call-to-action at the bottom of the expertise section",
+      "word_count": "5-8 words",
+      "ai_prompt": "Create a compelling heading for a call-to-action about specialized {{ business.category }} needs.",
+      "examples": [
+        "Need Specialized Care for Your {{ business.primary_keyword }}?"
+      ]
+    },
+    "expertise_cta_button": {
+      "type": "string",
+      "description": "Text for the call-to-action button in the expertise section",
+      "word_count": "3-6 words",
+      "ai_prompt": "Create a short, action-oriented text for a button about discussing custom {{ business.category }} needs.",
+      "examples": [
+        "Discuss Your Custom Needs"
+      ]
+    },
+    "page_title": {
+      "type": "string",
+      "description": "Dynamic page title that incorporates business category, city and state from business data",
+      "word_count": "8-12 words",
+      "ai_prompt": "Create a compelling page title for a local {{ business.category }} service that includes the business type and location. Make it SEO-friendly and include the primary keyword '{{ business.primary_keyword }}' along with city and state variables.",
+      "examples": [
+        "Expert {{ business.category }} Services | Local {{ business.primary_keyword }} in {{ business.city }}, {{ business.state }}"
+      ]
+    },
+    "meta_description": {
+      "type": "string",
+      "description": "Meta description for SEO",
+      "word_count": "15-25",
+      "ai_prompt": "Write a meta description for a {{ business.category }} business website that includes the primary keyword and location.",
+      "examples": [
+        "Optimized for Local {{ business.primary_keyword }} Services in {{ business.city }}."
+      ]
+    },
+    "meta_keywords": {
+      "type": "string",
+      "description": "SEO meta keywords for the page",
+      "word_count": "10-15 keywords",
+      "ai_prompt": "Generate relevant SEO keywords for a local {{ business.category }} business, including the primary keyword '{{ business.primary_keyword }}', additional services {{ business.additional_services }}, location names, and related terms. Separate with commas.",
+      "examples": [
+        "{{ business.primary_keyword }}, {{ business.category }} services, {{ business.additional_services[0] }}, {{ business.additional_services[1] }}, local {{ business.primary_keyword }}, {{ business.city }} {{ business.category }}, {{ business.state }} {{ business.primary_keyword }}"
+      ]
+    },
+    "geo_position": {
+      "type": "string",
+      "description": "Geographic coordinates (latitude;longitude) - AI should generate based on the business city and state",
+      "word_count": "1 coordinate pair",
+      "ai_prompt": "Generate the latitude and longitude coordinates for {{ business.city }}, {{ business.state }} in the format: latitude;longitude (e.g., 30.2672;-97.7431). Use accurate coordinates for the city center.",
+      "examples": [
+        "30.2672;-97.7431"
+      ]
+    },
+    "hero_heading": {
+      "type": "string",
+      "description": "Main heading for the hero section",
+      "word_count": "8-12 words",
+      "ai_prompt": "Create a compelling headline for a local {{ business.category }} service that emphasizes being the top choice in {{ business.city }} ONLY. Include the primary keyword '{{ business.primary_keyword }}' and highlight local presence in {{ business.city }}. Do NOT include any service areas or other cities.",
+      "examples": [
+        "The #1 {{ business.primary_keyword }} Service in {{ business.city }}"
+      ]
+    },
+    "hero_subheading": {
+      "type": "string",
+      "description": "Supporting text below the main heading",
+      "word_count": "15-20 words",
+      "ai_prompt": "Write a brief, compelling subheading that highlights the key benefits of the {{ business.category }} service. Focus on quality, reliability, and results.",
+      "examples": [
+        "Professional {{ business.category }} Services with Fast Response Times. Reliable Solutions for All Your {{ business.primary_keyword }} Needs."
+      ]
+    },
+    "hero_cta": {
+      "type": "string",
+      "description": "Call to action button text",
+      "word_count": "3-6 words",
+      "ai_prompt": "Create a short, action-oriented call-to-action for booking a {{ business.category }} service.",
+      "examples": [
+        "Book Your Service Today!"
+      ]
+    },
+    "why_us_heading": {
+      "type": "string",
+      "description": "Heading for the Why Us section",
+      "word_count": "6-10 words",
+      "ai_prompt": "Create a heading that emphasizes local trust and expertise for a {{ business.category }} service.",
+      "examples": [
+        "Why Local Residents Trust Our {{ business.primary_keyword }} Experts"
+      ]
+    },
+    "benefit_1_title": {
+      "type": "string",
+      "description": "Title for the first benefit",
+      "word_count": "2-4 words",
+      "ai_prompt": "Create a short, impactful title for the eco-friendly aspect of the {{ business.category }} service.",
+      "examples": [
+        "Eco-Safe Solutions"
+      ]
+    },
+    "benefit_1_description": {
+      "type": "string",
+      "description": "Description for the first benefit",
+      "word_count": "10-15 words",
+      "ai_prompt": "Write a brief description highlighting the eco-friendly and safe nature of the {{ business.category }} solutions.",
+      "examples": [
+        "Safe for children, pets, and the planet. No harsh chemicals."
+      ]
+    },
+    "benefit_2_title": {
+      "type": "string",
+      "description": "Title for the second benefit",
+      "word_count": "2-4 words",
+      "ai_prompt": "Create a short, impactful title emphasizing the local and quick service.",
+      "examples": [
+        "Fast, Local Service"
+      ]
+    },
+    "benefit_2_description": {
+      "type": "string",
+      "description": "Description for the second benefit",
+      "word_count": "10-15 words",
+      "ai_prompt": "Write a brief description highlighting the quick response time and local knowledge of the service.",
+      "examples": [
+        "Same-day appointments often available. We know the area."
+      ]
+    },
+    "benefit_3_title": {
+      "type": "string",
+      "description": "Title for the third benefit",
+      "word_count": "2-4 words",
+      "ai_prompt": "Create a short, impactful title emphasizing the professional qualifications of the staff.",
+      "examples": [
+        "Certified Technicians"
+      ]
+    },
+    "benefit_3_description": {
+      "type": "string",
+      "description": "Description for the third benefit",
+      "word_count": "10-15 words",
+      "ai_prompt": "Write a brief description highlighting the training and certification of the {{ business.category }} technicians.",
+      "examples": [
+        "Fully trained and certified professionals for optimal results."
+      ]
+    },
+    "benefit_4_title": {
+      "type": "string",
+      "description": "Title for the fourth benefit",
+      "word_count": "2-4 words",
+      "ai_prompt": "Create a short, impactful title emphasizing the satisfaction guarantee.",
+      "examples": [
+        "100% Satisfaction"
+      ]
+    },
+    "benefit_4_description": {
+      "type": "string",
+      "description": "Description for the fourth benefit",
+      "word_count": "10-15 words",
+      "ai_prompt": "Write a brief description highlighting the satisfaction guarantee and re-service policy.",
+      "examples": [
+        "If you're not happy, we re-service for free. Guaranteed."
+      ]
+    },
+    "why_us_cta": {
+      "type": "string",
+      "description": "Call to action button text for the Why Us section",
+      "word_count": "4-7 words",
+      "ai_prompt": "Create a compelling call-to-action for scheduling a {{ business.category }} service that emphasizes ease and convenience.",
+      "examples": [
+        "Schedule Your Hassle-Free Service"
+      ]
+    },
+    "process_heading": {
+      "type": "string",
+      "description": "Heading for the service process section",
+      "word_count": "6-10 words",
+      "ai_prompt": "Create a heading that describes a simple, step-by-step {{ business.category }} service process.",
+      "examples": [
+        "Our Simple 3-Step {{ business.category }} Process"
+      ]
+    },
+    "step_1_title": {
+      "type": "string",
+      "description": "Title for the first step in the service process",
+      "word_count": "2-3 words",
+      "ai_prompt": "Create a short, descriptive title for the booking and preparation step of the {{ business.category }} process.",
+      "examples": [
+        "Book & Prep"
+      ]
+    },
+    "step_1_description": {
+      "type": "string",
+      "description": "Description for the first step in the service process",
+      "word_count": "15-25 words",
+      "ai_prompt": "Write a brief description of the booking and preparation process for {{ business.category }} services, including scheduling and initial assessment.",
+      "examples": [
+        "Schedule your {{ business.primary_keyword }} service online or by phone. We'll discuss your specific needs and provide a transparent quote before your appointment."
+      ]
+    },
+    "step_2_title": {
+      "type": "string",
+      "description": "Title for the second step in the service process",
+      "word_count": "2-3 words",
+      "ai_prompt": "Create a short, descriptive title for the main service step of the {{ business.category }} process.",
+      "examples": [
+        "Service Delivery"
+      ]
+    },
+    "step_2_description": {
+      "type": "string",
+      "description": "Description for the second step in the service process",
+      "word_count": "15-25 words",
+      "ai_prompt": "Write a brief description of the main service delivery process for {{ business.category }}, highlighting thoroughness and quality.",
+      "examples": [
+        "Our trained professionals use industry-leading techniques and equipment to deliver exceptional {{ business.primary_keyword }} results that meet your specific needs."
+      ]
+    },
+    "step_3_title": {
+      "type": "string",
+      "description": "Title for the third step in the service process",
+      "word_count": "2-3 words",
+      "ai_prompt": "Create a short, descriptive title for the final inspection and completion step of the {{ business.category }} process.",
+      "examples": [
+        "Inspect & Complete"
+      ]
+    },
+    "step_3_description": {
+      "type": "string",
+      "description": "Description for the third step in the service process",
+      "word_count": "15-25 words",
+      "ai_prompt": "Write a brief description of the final inspection and completion process for {{ business.category }} services, emphasizing customer involvement and quality assurance.",
+      "examples": [
+        "Final inspection with you, followed by quality assurance steps to ensure you're completely satisfied with our {{ business.primary_keyword }} service."
+      ]
+    },
+    "communities_heading": {
+      "type": "string",
+      "description": "Heading for the local communities section",
+      "word_count": "5-10 words",
+      "ai_prompt": "Create a heading that emphasizes the business serves specific local communities.",
+      "examples": [
+        "We Proudly Serve the Following Local Communities"
+      ]
+    },
+    "communities_description": {
+      "type": "string",
+      "description": "Description for the local communities section",
+      "word_count": "15-25 words",
+      "ai_prompt": "Write a brief description encouraging potential customers from local neighborhoods to call for the {{ business.category }} service.",
+      "examples": [
+        "If you need professional {{ business.primary_keyword }} services in any of these neighborhoods, call us today!"
+      ]
+    },
+    "communities_contact_cta": {
+      "type": "string",
+      "description": "Call to action text for contacting about service areas not listed",
+      "word_count": "8-12 words",
+      "ai_prompt": "Create a brief call-to-action encouraging visitors to contact the business if their area isn't listed.",
+      "examples": [
+        "Don't see your area? Contact us to confirm availability →"
+      ]
+    },
+    "testimonials_heading": {
+      "type": "string",
+      "description": "Heading for the testimonials section",
+      "word_count": "4-10",
+      "ai_prompt": "Write a heading for the testimonials section that emphasizes local customer satisfaction with the {{ business.category }} service.",
+      "examples": [
+        "What Our Local {{ business.primary_keyword }} Customers Say"
+      ]
+    },
+    "testimonial_1_text": {
+      "type": "string",
+      "description": "First customer testimonial text",
+      "word_count": "15-30",
+      "ai_prompt": "Write a testimonial from a satisfied customer about the quality of {{ business.category }} service, focusing on results and professionalism.",
+      "examples": [
+        "The {{ business.primary_keyword }} service was exceptional! The results exceeded my expectations. Fast service and very professional team from {{ business.city }}."
+      ]
+    },
+    "testimonial_1_author": {
+      "type": "string",
+      "description": "Name and location of the first testimonial author",
+      "word_count": "2-5",
+      "ai_prompt": "Create a name and location for the first testimonial author.",
+      "examples": [
+        "Sarah L., Willow Creek"
+      ]
+    },
+    "testimonial_2_text": {
+      "type": "string",
+      "description": "Second customer testimonial text",
+      "word_count": "15-30",
+      "ai_prompt": "Write a testimonial from a satisfied customer about the timeliness and efficiency of the {{ business.category }} service.",
+      "examples": [
+        "Best {{ business.primary_keyword }} experience ever. They were on time and extremely efficient. Highly recommend!"
+      ]
+    },
+    "testimonial_2_author": {
+      "type": "string",
+      "description": "Name and location of the second testimonial author",
+      "word_count": "2-5",
+      "ai_prompt": "Create a name and location for the second testimonial author.",
+      "examples": [
+        "Michael B., Downtown Heights"
+      ]
+    },
+    "testimonial_3_text": {
+      "type": "string",
+      "description": "Third customer testimonial text",
+      "word_count": "15-30",
+      "ai_prompt": "Write a testimonial from a satisfied customer about the eco-friendly products used in the {{ business.category }} service.",
+      "examples": [
+        "I appreciate their commitment to eco-friendly products. My kids are sensitive, and it was great knowing the {{ business.primary_keyword }} was safe for our home in {{ business.city }}."
+      ]
+    },
+    "testimonial_3_author": {
+    "type": "string",
+    "description": "Name and location of the third testimonial author",
+    "word_count": "2-5",
+    "ai_prompt": "Create a name and location for the third testimonial author.",
+    "examples": [
+      "Jessica H., Eastside Borough"
+    ]
+  },
+  "faq_heading": {
+    "type": "string",
+    "description": "Heading for the FAQ section",
+    "word_count": "3-10",
+    "ai_prompt": "Write a heading for the frequently asked questions section about {{ business.category }} services.",
+    "examples": [
+      "Frequently Asked Questions About {{ business.primary_keyword }} Services"
+    ]
+  },
+  "faqs": {
+    "type": "array",
+    "description": "Array of FAQ items with questions and answers",
+    "minItems": 6,
+    "maxItems": 10,
+    "items": {
+      "type": "object",
+      "properties": {
+        "question": {
+          "type": "string",
+          "description": "FAQ question",
+          "word_count": "8-15",
+          "ai_prompt": "Write a seo optimzed question about {{ business.category }} services."
+        },
+        "answer": {
+          "type": "string",
+          "description": "Answer to the FAQ question",
+          "word_count": "20-40",
+          "ai_prompt": "Write a detailed answer to the question about {{ business.category }} services."
+        }
+      }
+    },
+    "examples": [
+      [
+        {
+          "question": "How long does a typical {{ business.primary_keyword }} service take to complete?",
+          "answer": "A standard {{ business.primary_keyword }} service usually takes 1-2 hours. Our professional team works efficiently to complete your service with minimal disruption to your schedule in {{ business.city }}."
+        },
+        {
+          "question": "Are your {{ business.category }} methods safe for my family and pets?",
+          "answer": "Absolutely. We exclusively use non-toxic, biodegradable, and pH-neutral solutions that are entirely safe for children, pets, and individuals with allergies in {{ business.city }}."
+        },
+        {
+          "question": "Do you offer specific treatment for stubborn issues in {{ business.primary_keyword }}?",
+          "answer": "Yes, we specialize in advanced treatments for tough issues in {{ business.primary_keyword }}. Our technicians are trained to handle all common challenges in {{ business.city }}."
+        }
+      ]
+    ]
+  },
+ 
+  "guarantee_heading": {
+    "type": "string",
+    "description": "Heading for the satisfaction guarantee section",
+    "word_count": "3-8",
+    "ai_prompt": "Write a heading for the satisfaction guarantee section that emphasizes the 100% satisfaction promise for {{ business.category }} services.",
+    "examples": [
+      "Our {{ business.primary_keyword }} Satisfaction Guarantee"
+    ]
+  },
+  "guarantee_description": {
+      "type": "string",
+      "description": "Description of the satisfaction guarantee",
+      "word_count": "20-30",
+      "ai_prompt": "Write a description of the satisfaction guarantee, mentioning that unsatisfied customers will receive a free re-service for {{ business.primary_keyword }} services.",
+      "examples": [
+        "We stand by our work. If you are not completely delighted with your {{ business.primary_keyword }} results, we will return and re-service the area for free."
+      ]
+    },
+  "guarantee_tagline": {
+      "type": "string",
+      "description": "Short tagline for the guarantee section",
+      "word_count": "5-10",
+      "ai_prompt": "Write a short tagline for the guarantee section that emphasizes zero risk and quality service.",
+      "examples": [
+        "That's the promise. Zero risk, maximum satisfaction."
+      ]
+    },
+    "services_section_title": {
+      "type": "string",
+      "description": "Main title for the services section",
+      "word_count": "4-6 words",
+      "ai_prompt": "Create an engaging section title that highlights the core services offered by the {{ business.category }} business. Make it local and service-focused.",
+      "examples": [
+        "Our Core Local {{ business.primary_keyword }} Services"
+      ]
+    },
+    "service_1_title": {
+      "type": "string",
+      "description": "Title for the first core service",
+      "word_count": "3-6",
+      "ai_prompt": "Create a compelling title for the primary {{ business.category }} service. Make it descriptive and benefit-focused.",
+      "examples": [
+        "Primary {{ business.primary_keyword }} Service"
+      ]
+    },
+    "service_1_description": {
+      "type": "string",
+      "description": "Description for the first core service",
+      "word_count": "15-25",
+      "ai_prompt": "Write a detailed description of the primary {{ business.category }} service, highlighting the process, benefits, and results. Focus on what makes it effective.",
+      "examples": [
+        "Specialized methods to deliver exceptional results for all {{ business.primary_keyword }} needs, ensuring complete satisfaction and outstanding quality."
+      ]
+    },
+    "service_2_title": {
+      "type": "string",
+      "description": "Title for the second core service",
+      "word_count": "3-6",
+      "ai_prompt": "Create a title for the secondary {{ business.category }} service that emphasizes precision and care.",
+      "examples": [
+        "Precision {{ business.primary_keyword }} Care"
+      ]
+    },
+    "service_2_description": {
+      "type": "string",
+      "description": "Description for the second core service",
+      "word_count": "15-25",
+      "ai_prompt": "Describe the secondary {{ business.category }} service, emphasizing versatility, attention to detail, and quality methods.",
+      "examples": [
+        "From basic to complex {{ business.primary_keyword }} needs, we handle all services with attention to detail and industry-leading solutions."
+      ]
+    },
+    "service_3_title": {
+      "type": "string",
+      "description": "Title for the third core service",
+      "word_count": "3-6",
+      "ai_prompt": "Create a title for the specialized {{ business.category }} service that emphasizes effectiveness and specialization.",
+      "examples": [
+        "Specialized {{ business.primary_keyword }} Solutions"
+      ]
+    },
+    "service_3_description": {
+      "type": "string",
+      "description": "Description for the third core service",
+      "word_count": "15-25",
+      "ai_prompt": "Describe the specialized {{ business.category }} service, emphasizing guaranteed results, professional methods, and effectiveness.",
+      "examples": [
+        "Guaranteed complete resolution of challenging {{ business.primary_keyword }} issues using professional, specialized treatments designed for tough situations."
+      ]
+    },
+    "closing_cta_heading": {
+      "type": "string",
+      "description": "Heading for the final call-to-action section",
+      "word_count": "5-8 words",
+      "ai_prompt": "Create a compelling heading for the final call-to-action that encourages visitors to book {{ business.category }} services.",
+      "examples": [
+        "Ready for Professional {{ business.primary_keyword }}?"
+      ]
+    },
+    "closing_cta_text": {
+      "type": "string",
+      "description": "Text for the final call-to-action section",
+      "word_count": "10-15 words",
+      "ai_prompt": "Write a brief, compelling text for the final call-to-action that creates urgency.",
+      "examples": [
+        "Don't wait! The best local {{ business.primary_keyword }} service is just a click or call away."
+      ]
+    },
+    "closing_cta_button": {
+      "type": "string",
+      "description": "Text for the final call-to-action button",
+      "word_count": "3-5 words",
+      "ai_prompt": "Create a short, action-oriented text for the final call-to-action button.",
+      "examples": [
+        "Get Your Quote Now →"
+      ]
+    },
+    "footer_company_description": {
+      "type": "string",
+      "description": "Short description of the company in the footer",
+      "word_count": "15-25 words",
+      "ai_prompt": "Write a brief description of the company for the footer section.",
+      "examples": [
+        "Local experts in professional {{ business.primary_keyword }}. Dedicated to your home's comfort and quality."
+      ]
+    },
+    "footer_service_details": {
+      "type": "string",
+      "description": "Brief description of services in the footer",
+      "word_count": "15-25 words",
+      "ai_prompt": "Write a brief description of the services offered for the footer section.",
+      "examples": [
+        "Specializing in {{ business.primary_keyword }} and related services. Serving all {{ business.city }} locations."
+      ]
+    },
+    "footer_copyright": {
+      "type": "string",
+      "description": "Copyright text for the footer",
+      "word_count": "5-10 words",
+      "ai_prompt": "Create a short copyright text for the footer.",
+      "examples": [
+        "Optimized for Local {{ business.primary_keyword }} Services."
+      ]
+    }
+  }
+}

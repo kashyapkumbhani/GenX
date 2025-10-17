@@ -1,0 +1,36 @@
+<svg width="200" height="150" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="200" height="150" fill="#ffffff" stroke="#007bff" stroke-width="2"/>
+  
+  <!-- Header with Business Name -->
+  <rect x="10" y="10" width="180" height="30" fill="#007bff" rx="5"/>
+  <text x="100" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold">Business Name</text>
+  
+  <!-- Navigation -->
+  <rect x="10" y="50" width="35" height="8" fill="#28a745" rx="2"/>
+  <rect x="55" y="50" width="45" height="8" fill="#28a745" rx="2"/>
+  <rect x="110" y="50" width="40" height="8" fill="#28a745" rx="2"/>
+  <rect x="160" y="50" width="30" height="8" fill="#28a745" rx="2"/>
+  
+  <!-- Hero Section -->
+  <rect x="10" y="70" width="180" height="35" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" rx="3"/>
+  <text x="100" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#495057">Professional Service</text>
+  <text x="100" y="98" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#6c757d">Quality work in your area</text>
+  
+  <!-- Service Areas -->
+  <rect x="10" y="115" width="55" height="25" fill="#e3f2fd" stroke="#2196f3" stroke-width="1" rx="3"/>
+  <text x="37" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#1976d2">Austin</text>
+  <text x="37" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#1976d2">Service Area</text>
+  
+  <rect x="75" y="115" width="55" height="25" fill="#e8f5e8" stroke="#4caf50" stroke-width="1" rx="3"/>
+  <text x="102" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#388e3c">Round Rock</text>
+  <text x="102" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#388e3c">Service Area</text>
+  
+  <!-- Contact Info -->
+  <rect x="140" y="115" width="50" height="25" fill="#fff3e0" stroke="#ff9800" stroke-width="1" rx="3"/>
+  <text x="165" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#f57c00">Contact</text>
+  <text x="165" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#f57c00">Call Now</text>
+  
+  <!-- Business Template Label -->
+  <text x="100" y="148" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#007bff" font-weight="bold">Business Template</text>
+</svg>

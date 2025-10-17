@@ -1,0 +1,578 @@
+<!--
+LOCATION PAGE TEMPLATE
+This is a reusable template for creating location-specific service pages.
+
+To customize for different services:
+1. Update the page title in <title> tag
+2. Replace "Professional Services" with your specific service (e.g., "Plumbing Services", "Sofa Cleaning", "Carpet Cleaning")
+3. Update hero section description
+4. Modify the "Why Downtown Heights Trusts Us" section if needed
+5. Update specialized services section for your service type
+6. Customize transformation stories to match your service
+7. Update contact form placeholders
+8. Modify footer descriptions
+
+The location-specific elements (Downtown Heights) should remain the same for local SEO.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Services in Downtown Heights | Local Experts</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for the required font and clean look */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f7; /* Very light gray for contrast */
+        }
+        .cta-button {
+            /* Deep emerald green, solid color, no gradient */
+            background-color: #059669; /* emerald-600 */
+            transition: background-color 0.3s, transform 0.1s;
+        }
+        .cta-button:hover {
+            background-color: #047857; /* emerald-700 */
+            transform: translateY(-1px);
+        }
+        .section-header {
+            color: #059669; /* emerald-600 */
+        }
+        .border-green {
+            border-color: #059669;
+        }
+        /* Style for the Contact Form */
+        .input-field {
+            border: 1px solid #d1d5db;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            width: 100%;
+            transition: border-color 0.2s;
+        }
+        .input-field:focus {
+            outline: none;
+            border-color: #059669;
+            box-shadow: 0 0 0 1px #059669;
+        }
+    </style>
+    <!-- Configure Tailwind to use 'Inter' (default) and a green palette -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-green': '#059669',
+                        'secondary-green': '#10b981',
+                        'light-gray': '#f7f7f7',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="text-gray-800">
+
+    <!-- 1. HEADER & NAVIGATION -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
+            <h1 class="text-2xl font-bold text-primary-green">
+                <a href="index.html">CleanComfort Pro</a>
+            </h1>
+            <nav class="hidden md:flex space-x-6 text-gray-600 font-medium">
+                <a href="index.html#services" class="hover:text-primary-green transition duration-150">Services</a>
+                <a href="index.html#process" class="hover:text-primary-green transition duration-150">Our Process</a>
+                <a href="index.html#areas" class="hover:text-primary-green transition duration-150">Service Areas</a>
+                <a href="#local-info" class="hover:text-primary-green transition duration-150">Downtown Heights</a>
+            </nav>
+            <!-- CTA: High visibility button -->
+            <a href="#contact" class="cta-button text-white px-5 py-2 rounded-lg font-semibold shadow-lg hidden sm:block">
+                Get Instant Quote
+            </a>
+            <!-- Mobile Menu/CTA (Placeholder for a dropdown if needed, but keeping simple for single page) -->
+            <a href="tel:555-1234" class="md:hidden text-primary-green font-bold text-lg">
+                Call Us
+            </a>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- 2. HERO SECTION (Location-specific) -->
+        <section id="hero" class="bg-white py-16 md:py-24 text-center border-b border-primary-green/10">
+            <div class="max-w-5xl mx-auto px-4">
+                <!-- H1: SEO optimized for location and service -->
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight text-gray-900">
+                    Professional Services in <span class="text-primary-green">Downtown Heights</span>
+                </h2>
+                <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                    Your Trusted Local Experts. Serving Downtown Heights with Professional, Reliable Service You Can Count On.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#contact" class="cta-button text-white px-10 py-4 rounded-xl text-xl font-bold shadow-2xl hover:shadow-primary-green/50">
+                        Book Downtown Heights Service
+                    </a>
+                    <a href="tel:555-1234" class="bg-gray-200 text-primary-green px-10 py-4 rounded-xl text-xl font-bold border-2 border-primary-green/50 hover:bg-gray-300">
+                        Call (555) 123-4567
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. LOCAL AREA INFORMATION -->
+        <section id="local-info" class="py-16 bg-light-gray">
+            <div class="max-w-7xl mx-auto px-4">
+                <h3 class="text-3xl font-bold mb-10 text-center section-header">Why Choose CleanComfort Pro for Downtown Heights Services</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="text-gray-700 leading-relaxed">
+                        <h4 class="text-xl font-semibold mb-4 text-gray-900">Local Expertise You Can Trust</h4>
+                        <p class="mb-4">
+                            For over a decade, CleanComfort Pro has been the trusted choice for Downtown Heights residents seeking professional home services. Our deep roots in the community mean we understand the unique lifestyle and property characteristics that make downtown living special.
+                        </p>
+                        <p class="mb-4">
+                            Downtown Heights combines historic charm with modern urban sophistication. From beautifully preserved brownstones to sleek high-rise condos, each property tells a story. Our experienced team respects this diversity, providing tailored solutions that honor your home's character while delivering professional results.
+                        </p>
+                        <p class="mb-4">
+                            What truly sets us apart is our commitment to personalized service. We don't offer cookie-cutter solutions. Instead, we take the time to understand your specific needs, preferences, and constraints, ensuring every project reflects the care and attention it deserves.
+                        </p>
+                    </div>
+                    <div class="text-gray-700 leading-relaxed">
+                        <h4 class="text-xl font-semibold mb-4 text-gray-900">Why Downtown Heights Residents Choose Us</h4>
+                        <p class="mb-4">
+                            Busy professionals, growing families, and seasoned residents all find what they need with CleanComfort Pro. Our flexible scheduling accommodates demanding work hours, while our local expertise ensures seamless coordination with building management and property requirements.
+                        </p>
+                        <p class="mb-4">
+                            We understand the unique challenges of downtown living - from navigating building access protocols to managing parking in busy urban environments. Our team makes these complexities invisible to you, delivering professional service with minimal disruption to your lifestyle.
+                        </p>
+                        <p class="mb-4">
+                            Beyond technical expertise, we bring genuine care to every project. Downtown Heights isn't just a location to us - it's our community. We take pride in contributing to the neighborhood's reputation as a place where quality of life and professional service go hand in hand.
+                        </p>
+                        <p class="mb-4">
+                            When you choose CleanComfort Pro, you're not just selecting a service provider - you're partnering with experienced professionals who genuinely care about your satisfaction and the long-term well-being of our shared community.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 5. LOCAL TESTIMONIALS -->
+        <section id="local-testimonials" class="py-16 bg-primary-green/5">
+            <div class="max-w-5xl mx-auto px-4">
+                <h3 class="text-3xl font-bold mb-10 text-center section-header">What Downtown Heights Customers Say</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-primary-green">
+                        <p class="italic text-gray-700 mb-4">"CleanComfort Pro handled our 15th-floor condo project perfectly. They were professional, punctual, and the results were amazing. Highly recommend for downtown living!"</p>
+                        <p class="font-semibold text-primary-green">- David M., Riverside Condos</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-primary-green">
+                        <p class="italic text-gray-700 mb-4">"As a busy professional, I needed same-day service. They accommodated my schedule perfectly and the team was fantastic. The results exceeded my expectations!"</p>
+                        <p class="font-semibold text-primary-green">- Sarah K., Heights Plaza</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-primary-green">
+                        <p class="italic text-gray-700 mb-4">"The emergency service saved the day when I needed urgent help. They arrived within an hour and the results were incredible. Downtown Heights' best service team!"</p>
+                        <p class="font-semibold text-primary-green">- Michael R., Historic Downtown</p>
+                    </div>
+                </div>
+                <!-- Additional Testimonials -->
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                ★★★★★
+                            </div>
+                            <span class="ml-2 text-sm text-gray-600">Google Review</span>
+                        </div>
+                        <p class="italic text-gray-700 mb-4">"Outstanding service for our office at Heights Plaza. They work around our business hours and everything always looks pristine. Professional team!"</p>
+                        <p class="font-semibold text-primary-green text-sm">- Downtown Financial Center</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                ★★★★★
+                            </div>
+                            <span class="ml-2 text-sm text-gray-600">Yelp Review</span>
+                        </div>
+                        <p class="italic text-gray-700 mb-4">"Downtown Heights residents - this is your go-to service team! They completely solved our problem and the results were outstanding. Highly recommend!"</p>
+                        <p class="font-semibold text-primary-green text-sm">- Jennifer L., Park Avenue Lofts</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5.5 DOWNTOWN HEIGHTS FAQ -->
+        <section id="local-faq" class="py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-4">
+                <h3 class="text-3xl font-bold mb-10 text-center section-header">Downtown Heights Services FAQ</h3>
+
+                <div class="space-y-4">
+                    <!-- Q1 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="w-full text-left p-4 font-semibold text-lg text-gray-900 bg-gray-50 hover:bg-primary-green/10 transition duration-150">
+                            Do you provide same-day services in Downtown Heights?
+                        </button>
+                        <div class="p-4 text-gray-600 border-t border-gray-200">
+                            Yes! We offer same-day service for most Downtown Heights locations, especially for urgent needs. Our local team can often accommodate same-day appointments when you call before noon. Emergency services are available 24/7 for immediate response to stains and accidents.
+                        </div>
+                    </div>
+                    <!-- Q2 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="w-full text-left p-4 font-semibold text-lg text-gray-900 bg-gray-50 hover:bg-primary-green/10 transition duration-150">
+                            How do you handle services in high-rise condos and apartments?
+                        </button>
+                        <div class="p-4 text-gray-600 border-t border-gray-200">
+                            We specialize in high-rise environments with proper equipment for elevators and limited access. Our experienced team is designed for condo living. We coordinate with building management for access and use professional techniques to minimize any impact on shared spaces.
+                        </div>
+                    </div>
+                    <!-- Q3 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="w-full text-left p-4 font-semibold text-lg text-gray-900 bg-gray-50 hover:bg-primary-green/10 transition duration-150">
+                            What makes your service different for Downtown Heights residents?
+                        </button>
+                        <div class="p-4 text-gray-600 border-t border-gray-200">
+                            We understand downtown living - busy professionals, condo restrictions, and the need for flexible scheduling. Our team knows local parking, building access procedures, and the specific challenges of urban living. Plus, we're always just minutes away for emergencies.
+                        </div>
+                    </div>
+                    <!-- Q4 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="w-full text-left p-4 font-semibold text-lg text-gray-900 bg-gray-50 hover:bg-primary-green/10 transition duration-150">
+                            Do you handle antique or delicate items in historic Downtown buildings?
+                        </button>
+                        <div class="p-4 text-gray-600 border-t border-gray-200">
+                            Absolutely! Many Downtown Heights historic homes and buildings feature beautiful antique items. We use specialized, gentle methods for delicate items, heirlooms, and antique pieces. Our certified technicians are trained in preservation techniques.
+                        </div>
+                    </div>
+                    <!-- Q5 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="w-full text-left p-4 font-semibold text-lg text-gray-900 bg-gray-50 hover:bg-primary-green/10 transition duration-150">
+                            What's your service area within Downtown Heights?
+                        </button>
+                        <div class="p-4 text-gray-600 border-t border-gray-200">
+                            We proudly serve all Downtown Heights neighborhoods including Riverside Condos, Heights Plaza, Historic Downtown, Park Avenue Lofts, Central Business District, and surrounding areas. For locations just outside our primary service area, contact us to discuss availability.
+                        </div>
+                    </div>
+                    <!-- Q6 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="w-full text-left p-4 font-semibold text-lg text-gray-900 bg-gray-50 hover:bg-primary-green/10 transition duration-150">
+                            How do you handle parking and access in busy downtown areas?
+                        </button>
+                        <div class="p-4 text-gray-600 border-t border-gray-200">
+                            As locals ourselves, we know Downtown Heights parking challenges. We use validated parking, arrive during optimal times, and coordinate with building staff for loading dock access when needed. Our compact equipment and professional approach minimize any inconvenience to neighbors or building residents.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5.5 LOCAL SERVICE AREAS -->
+        <section id="areas" class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <h3 class="text-3xl font-bold mb-6 text-center section-header">We Proudly Serve the Following Local Communities</h3>
+                <p class="text-lg text-gray-600 text-center mb-10 max-w-2xl mx-auto">If you need professional services in any of these neighborhoods, contact us today!</p>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 text-center">
+                    <span class="p-3 bg-light-gray rounded-lg font-medium text-gray-700 hover:bg-primary-green/10 transition duration-150">Downtown Heights</span>
+                    <span class="p-3 bg-light-gray rounded-lg font-medium text-gray-700 hover:bg-primary-green/10 transition duration-150">Willow Creek</span>
+                    <span class="p-3 bg-light-gray rounded-lg font-medium text-gray-700 hover:bg-primary-green/10 transition duration-150">Eastside Borough</span>
+                    <span class="p-3 bg-light-gray rounded-lg font-medium text-gray-700 hover:bg-primary-green/10 transition duration-150">Sunset Valley</span>
+                    <span class="p-3 bg-light-gray rounded-lg font-medium text-gray-700 hover:bg-primary-green/10 transition duration-150">Parkdale Center</span>
+                    <span class="p-3 bg-light-gray rounded-lg font-medium text-gray-700 hover:bg-primary-green/10 transition duration-150">Riverbend</span>
+                    <span class="p-3 bg-light-gray rounded-lg font-medium text-gray-700 hover:bg-primary-green/10 transition duration-150">The Orchards</span>
+                    <span class="p-3 bg-light-gray rounded-lg font-medium text-gray-700 hover:bg-primary-green/10 transition duration-150">Industrial Park West</span>
+                    <span class="p-3 bg-light-gray rounded-lg font-medium text-gray-700 hover:bg-primary-green/10 transition duration-150">Oakwood Estates</span>
+                    <span class="p-3 bg-light-gray rounded-lg font-medium text-gray-700 hover:bg-primary-green/10 transition duration-150">Lakeview South</span>
+                </div>
+                <!-- Tertiary CTA -->
+                <div class="text-center mt-10">
+                    <a href="#contact" class="text-lg font-semibold text-primary-green hover:underline">
+                        Don't see your area? Contact us to confirm availability &rarr;
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5.6 OTHER RELATED SERVICES -->
+        <section id="related-services" class="py-16 bg-light-gray">
+            <div class="max-w-7xl mx-auto px-4">
+                <h3 class="text-3xl font-bold mb-6 text-center section-header">Other Professional Services We Provide</h3>
+                <p class="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+                    Beyond our core services, CleanComfort Pro offers a comprehensive range of professional home and business services to meet all your needs.
+                </p>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+                    <!-- Service 1 -->
+                    <div class="bg-white p-4 rounded-lg shadow-md border-t-4 border-primary-green hover:shadow-lg transition duration-300 text-center">
+                        <h4 class="text-sm font-semibold text-gray-900">Plumbing</h4>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="bg-white p-4 rounded-lg shadow-md border-t-4 border-primary-green hover:shadow-lg transition duration-300 text-center">
+                        <h4 class="text-sm font-semibold text-gray-900">Carpet Cleaning</h4>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="bg-white p-4 rounded-lg shadow-md border-t-4 border-primary-green hover:shadow-lg transition duration-300 text-center">
+                        <h4 class="text-sm font-semibold text-gray-900">Sofa Cleaning</h4>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="bg-white p-4 rounded-lg shadow-md border-t-4 border-primary-green hover:shadow-lg transition duration-300 text-center">
+                        <h4 class="text-sm font-semibold text-gray-900">Tile & Grout</h4>
+                    </div>
+
+                    <!-- Service 5 -->
+                    <div class="bg-white p-4 rounded-lg shadow-md border-t-4 border-primary-green hover:shadow-lg transition duration-300 text-center">
+                        <h4 class="text-sm font-semibold text-gray-900">Window Cleaning</h4>
+                    </div>
+                    <!-- Service 6 -->
+                    <div class="bg-white p-4 rounded-lg shadow-md border-t-4 border-primary-green hover:shadow-lg transition duration-300 text-center">
+                        <h4 class="text-sm font-semibold text-gray-900">Window Cleaning</h4>
+                    </div>
+
+                    <!-- Service 7 -->
+                    <div class="bg-white p-4 rounded-lg shadow-md border-t-4 border-primary-green hover:shadow-lg transition duration-300 text-center">
+                        <h4 class="text-sm font-semibold text-gray-900">Window Cleaning</h4>
+                    </div>
+
+                    <!-- Service 8 -->
+                    <div class="bg-white p-4 rounded-lg shadow-md border-t-4 border-primary-green hover:shadow-lg transition duration-300 text-center">
+                        <h4 class="text-sm font-semibold text-gray-900">Window Cleaning</h4>
+                    </div>
+
+                    <!-- Service 9 -->
+                    <div class="bg-white p-4 rounded-lg shadow-md border-t-4 border-primary-green hover:shadow-lg transition duration-300 text-center">
+                        <h4 class="text-sm font-semibold text-gray-900">Window Cleaning</h4>
+                    </div>
+
+                    <!-- Service 10 -->
+                    <div class="bg-white p-4 rounded-lg shadow-md border-t-4 border-primary-green hover:shadow-lg transition duration-300 text-center">
+                        <h4 class="text-sm font-semibold text-gray-900">Window Cleaning</h4>
+                    </div>
+                </div>
+
+                <!-- Bottom CTA -->
+                <div class="text-center mt-12">
+                    <p class="text-lg text-gray-600 mb-6">
+                        Need multiple services? We offer package deals and scheduling coordination for comprehensive home maintenance.
+                    </p>
+                    <a href="#contact" class="cta-button text-white px-8 py-4 rounded-xl text-xl font-bold shadow-2xl hover:shadow-primary-green/50">
+                        Get a Multi-Service Quote
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. DOWNTOWN HEIGHTS STATISTICS & FACTS -->
+        <section id="local-stats" class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <h3 class="text-3xl font-bold mb-10 text-center section-header">Downtown Heights Services Statistics</h3>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div class="text-center p-6 bg-light-gray rounded-xl shadow-lg">
+                        <div class="text-4xl font-bold text-primary-green mb-2">85%</div>
+                        <h4 class="font-semibold text-gray-900 mb-2">Service Satisfaction</h4>
+                        <p class="text-sm text-gray-600">Of Downtown Heights residents rate our service as excellent or outstanding</p>
+                    </div>
+                    <div class="text-center p-6 bg-light-gray rounded-xl shadow-lg">
+                        <div class="text-4xl font-bold text-primary-green mb-2">2,400+</div>
+                        <h4 class="font-semibold text-gray-900 mb-2">Projects Completed</h4>
+                        <p class="text-sm text-gray-600">Total projects we've completed in Downtown Heights this year</p>
+                    </div>
+                    <div class="text-center p-6 bg-light-gray rounded-xl shadow-lg">
+                        <div class="text-4xl font-bold text-primary-green mb-2">4.9★</div>
+                        <h4 class="font-semibold text-gray-900 mb-2">Average Rating</h4>
+                        <p class="text-sm text-gray-600">Customer satisfaction rating from Downtown Heights residents on Google & Yelp</p>
+                    </div>
+                    <div class="text-center p-6 bg-light-gray rounded-xl shadow-lg">
+                        <div class="text-4xl font-bold text-primary-green mb-2">24hrs</div>
+                        <h4 class="font-semibold text-gray-900 mb-2">Response Time</h4>
+                        <p class="text-sm text-gray-600">Average response time for service requests in Downtown Heights</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+        <!-- 11. LOCAL SERVICE SCHEDULE -->
+        <section id="schedule" class="py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-4">
+                <h3 class="text-3xl font-bold mb-10 text-center section-header">Downtown Heights Service Hours & Availability</h3>
+                <div class="bg-light-gray rounded-xl p-8 shadow-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-xl font-semibold mb-4 text-gray-900">Regular Hours</h4>
+                            <div class="space-y-2 text-gray-700">
+                                <p><strong>Monday - Friday:</strong> 8:00 AM - 6:00 PM</p>
+                                <p><strong>Saturday:</strong> 9:00 AM - 4:00 PM</p>
+                                <p><strong>Sunday:</strong> Emergency calls only</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-semibold mb-4 text-gray-900">Downtown Advantages</h4>
+                            <div class="space-y-2">
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-primary-green">✓</span>
+                                    <span class="text-gray-700">Extended weekday hours for professionals</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-primary-green">✓</span>
+                                    <span class="text-gray-700">Weekend availability for residential clients</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-primary-green">✓</span>
+                                    <span class="text-gray-700">24/7 emergency stain treatment</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-primary-green">✓</span>
+                                    <span class="text-gray-700">Same-day service for urgent needs</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. CONTACT FORM (Location-specific) -->
+        <section id="contact" class="py-16 bg-light-gray border-t border-primary-green/20">
+            <div class="max-w-4xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Info Column -->
+                <div class="lg:pr-8">
+                    <h3 class="text-3xl font-bold mb-4 section-header">Book Your Downtown Heights Service</h3>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Get a free, no-obligation quote for professional services in Downtown Heights. Mention this page for priority scheduling.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <span class="text-primary-green text-xl font-bold">📞</span>
+                            <a href="tel:555-1234" class="text-xl font-semibold text-gray-900 hover:text-primary-green transition">(555) 123-4567</a>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="text-primary-green text-xl font-bold">📧</span>
+                            <a href="mailto:quote@cleanc.com" class="text-xl font-semibold text-gray-900 hover:text-primary-green transition">quote@cleanc.com</a>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="text-primary-green text-xl font-bold">📍</span>
+                            <p class="text-lg text-gray-700">Proudly serving Downtown Heights and surrounding areas. Licensed, insured, and locally owned.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form Column -->
+                <div class="bg-white p-8 rounded-xl shadow-2xl">
+                    <form action="#" method="POST" onsubmit="handleFormSubmit(event)">
+                        <div class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                                <input type="text" id="name" name="name" required class="input-field" placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required class="input-field" placeholder="(555) 123-4567">
+                            </div>
+                            <div>
+                                <label for="location" class="block text-sm font-medium text-gray-700 mb-1">Downtown Heights Address</label>
+                                <input type="text" id="location" name="location" required class="input-field" placeholder="123 Main St, Downtown Heights">
+                            </div>
+                            <div>
+                                <label for="service" class="block text-sm font-medium text-gray-700 mb-1">Service Needed</label>
+                                <input type="text" id="service" name="service" required class="input-field" placeholder="Describe your service needs">
+                            </div>
+                            <div>
+                                <label for="details" class="block text-sm font-medium text-gray-700 mb-1">Additional Details</label>
+                                <textarea id="details" name="details" rows="3" required class="input-field" placeholder="Additional details, preferred date/time, specific requirements..."></textarea>
+                            </div>
+                            <button type="submit" class="cta-button w-full text-white px-6 py-3 rounded-lg text-lg font-bold mt-4 shadow-lg">
+                                Request Downtown Heights Quote
+                            </button>
+                        </div>
+                    </form>
+                    <div id="message-box" class="mt-4 hidden p-3 rounded-lg text-white bg-primary-green font-semibold"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. CLOSING CTA (Location-focused) -->
+        <section class="py-16 bg-primary-green/10 text-center">
+            <div class="max-w-3xl mx-auto px-4">
+                <h3 class="text-3xl font-bold mb-4 text-gray-900">Ready for Professional Services in Downtown Heights?</h3>
+                <p class="text-xl text-gray-600 mb-6">
+                    Join hundreds of satisfied Downtown Heights residents who've chosen CleanComfort Pro for their service needs.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#contact" class="cta-button text-white px-10 py-4 rounded-xl text-xl font-bold shadow-2xl hover:shadow-primary-green/50">
+                        Get Your Free Quote &rarr;
+                    </a>
+                    <a href="index.html#areas" class="bg-white text-primary-green px-10 py-4 rounded-xl text-xl font-bold border-2 border-primary-green hover:bg-light-gray">
+                        View All Service Areas
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <h5 class="text-lg font-bold text-primary-green mb-3">CleanComfort Pro</h5>
+                    <p class="text-gray-400 text-sm">Local experts in professional services. Proudly serving Downtown Heights and surrounding communities.</p>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <h5 class="text-lg font-bold text-primary-green mb-3">Navigation</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html#services" class="text-gray-400 hover:text-white transition">Our Services</a></li>
+                        <li><a href="index.html#process" class="text-gray-400 hover:text-white transition">Our Process</a></li>
+                        <li><a href="index.html#guarantee" class="text-gray-400 hover:text-white transition">Our Guarantee</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Get a Quote</a></li>
+                    </ul>
+                </div>
+                <!-- Service Info -->
+                <div>
+                    <h5 class="text-lg font-bold text-primary-green mb-3">Downtown Heights</h5>
+                    <p class="text-gray-400 text-sm">Professional services for condos, offices, and historic homes in Downtown Heights. Same-day service available.</p>
+                </div>
+                <!-- Contact Info (Footer CTA) -->
+                <div>
+                    <h5 class="text-lg font-bold text-primary-green mb-3">Contact Us</h5>
+                    <p class="text-gray-400 text-sm">Call us now:</p>
+                    <p class="text-xl font-bold text-white mb-2"><a href="tel:555-1234" class="hover:text-primary-green transition">(555) 123-4567</a></p>
+                    <a href="#contact" class="text-sm font-semibold text-primary-green hover:underline">Request Downtown Heights service</a>
+                </div>
+            </div>
+
+            <!-- Copyright and SEO text -->
+            <div class="mt-8 pt-6 border-t border-gray-700 text-center text-sm text-gray-500">
+                &copy; 2024 CleanComfort Pro. All rights reserved. | <span class="text-primary-green">Professional Services in Downtown Heights.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Simple JavaScript for Form Submission Message -->
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Stop the form from actually submitting
+
+            const form = event.target;
+            const name = form.elements['name'].value;
+            const messageBox = document.getElementById('message-box');
+
+            // Display success message
+            messageBox.textContent = `Thank you, ${name}! Your Downtown Heights service request has been sent. We'll contact you shortly with your free quote.`;
+            messageBox.classList.remove('hidden');
+
+            // Clear the form after a delay
+            setTimeout(() => {
+                form.reset();
+                messageBox.classList.add('hidden');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

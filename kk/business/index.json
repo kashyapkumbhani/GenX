@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "services_description",
+    "additional_services_descriptions",
+    "about_business",
+    "contact_cta"
+  ],
+  "properties": {
+    "services_description": {
+      "type": "string",
+      "description": "A detailed description of the primary service offered by the business",
+      "examples": [
+        "Our professional plumbing services are designed to address all your plumbing needs with expertise and efficiency. From routine maintenance to emergency repairs, our licensed plumbers use the latest tools and techniques to ensure lasting solutions."
+      ]
+    },
+    "additional_services_descriptions": {
+      "type": "array",
+      "description": "Descriptions for each additional service offered by the business",
+      "items": {
+        "type": "string",
+        "description": "Description of an additional service"
+      },
+      "examples": [
+        [
+          "Our emergency plumbing service is available 24/7 to address urgent issues like burst pipes, severe leaks, or flooding. We respond quickly to minimize damage to your property.",
+          "Our drain cleaning services use advanced techniques to clear blockages and ensure proper water flow. We handle everything from simple clogs to complex sewer line issues.",
+          "We offer professional water heater installation services for all types and brands. Our experts will help you select the right unit for your needs and ensure it's installed correctly for optimal performance."
+        ]
+      ]
+    },
+    "about_business": {
+      "type": "string",
+      "description": "A comprehensive description of the business, its history, values, and commitment to quality",
+      "examples": [
+        "<p>Founded in 2005, ABC Plumbing Services has been serving the Austin area with dedication and expertise for over 15 years. Our team of licensed and insured plumbers brings decades of combined experience to every job.</p><p>We pride ourselves on our commitment to quality workmanship, transparent pricing, and exceptional customer service. Our goal is to build lasting relationships with our clients by providing reliable solutions to all their plumbing needs.</p><p>At ABC Plumbing, we stay updated with the latest industry advancements and use modern techniques and equipment to deliver efficient and effective services. We're proud to be a locally owned and operated business that understands the specific plumbing challenges faced by homeowners in our community.</p>"
+      ]
+    },
+    "contact_cta": {
+      "type": "string",
+      "description": "A call-to-action encouraging visitors to contact the business",
+      "examples": [
+        "Ready to experience professional plumbing services? Contact us today for a free consultation and estimate. Our friendly team is standing by to address all your plumbing needs with prompt, reliable service you can count on."
+      ]
+    }
+  }
+}
