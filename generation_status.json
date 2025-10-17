@@ -1,0 +1,148 @@
+{
+  "generations": {
+    "e544f41d-09dc-49d7-8189-0a400e308a9c": {
+      "id": "e544f41d-09dc-49d7-8189-0a400e308a9c",
+      "status": "completed",
+      "progress": 100,
+      "business_name": "Unknown Business",
+      "template": "Greenz",
+      "created_at": "2025-10-17T17:10:02.323623",
+      "started_at": "2025-10-17T17:10:02.337626",
+      "completed_at": "2025-10-17T17:11:25.455009",
+      "error": null,
+      "version": 1,
+      "preview_url": "/preview/1",
+      "business_data": {
+        "business": {
+          "name": "ABC Plumbing Services",
+          "phone": "(555) 123-4567",
+          "email": "contact@abcplumbing.com",
+          "address": "123 Main Street",
+          "city": "Austin",
+          "state": "Texas",
+          "zipCode": "78701",
+          "website": "https://abcplumbing.com",
+          "category": "Plumbing"
+        },
+        "primary_keyword": "Plumber",
+        "additional_services": [
+          "Emergency Plumbing",
+          "Drain Cleaning",
+          "Water Heater Installation",
+          "Leak Detection"
+        ],
+        "service_areas": [
+          {
+            "city": "Austin"
+          },
+          {
+            "city": "Round Rock"
+          },
+          {
+            "city": "Cedar Park"
+          },
+          {
+            "city": "Georgetown"
+          },
+          {
+            "city": "Pflugerville"
+          }
+        ],
+        "template": "Greenz",
+        "timestamp": "2025-10-17T17:10:02.321624"
+      },
+      "updated_at": "2025-10-17T17:11:25.455009",
+      "message": "Generation completed successfully"
+    },
+    "153bb416-11f8-4ccd-a38c-4176204acede": {
+      "id": "153bb416-11f8-4ccd-a38c-4176204acede",
+      "status": "completed",
+      "progress": 100,
+      "business_name": "Unknown Business",
+      "template": "Greenz",
+      "created_at": "2025-10-17T17:11:59.833412",
+      "started_at": "2025-10-17T17:11:59.846411",
+      "completed_at": "2025-10-17T17:12:42.216231",
+      "error": null,
+      "version": 2,
+      "preview_url": "/preview/2",
+      "business_data": {
+        "business": {
+          "name": "ABC Plumbing Services",
+          "phone": "(555) 123-4567",
+          "email": "contact@abcplumbing.com",
+          "address": "123 Main Street",
+          "city": "Austin",
+          "state": "Texas",
+          "zipCode": "78701",
+          "website": "https://abcplumbing.com",
+          "category": "Plumbing"
+        },
+        "primary_keyword": "Plumber",
+        "additional_services": [
+          "Emergency Plumbing",
+          "Drain Cleaning",
+          "Water Heater Installation",
+          "Leak Detection"
+        ],
+        "service_areas": [
+          {
+            "city": "Austin"
+          },
+          {
+            "city": "Round Rock"
+          }
+        ],
+        "template": "Greenz",
+        "timestamp": "2025-10-17T17:11:59.831414"
+      },
+      "updated_at": "2025-10-17T17:12:42.216231",
+      "message": "Generation completed successfully"
+    },
+    "f0b13017-3fae-402d-a4c6-6cb1de737c67": {
+      "id": "f0b13017-3fae-402d-a4c6-6cb1de737c67",
+      "status": "completed",
+      "progress": 100,
+      "business_name": "ABC Plumbing Services",
+      "template": "Greenz",
+      "created_at": "2025-10-17T17:15:15.256517",
+      "started_at": "2025-10-17T17:15:15.270516",
+      "completed_at": "2025-10-17T17:15:54.267528",
+      "error": null,
+      "version": 3,
+      "preview_url": "/preview/3",
+      "business_data": {
+        "business": {
+          "name": "ABC Plumbing Services",
+          "phone": "(555) 123-4567",
+          "email": "contact@abcplumbing.com",
+          "address": "123 Main Street",
+          "city": "Austin",
+          "state": "Texas",
+          "zipCode": "78701",
+          "website": "https://abcplumbing.com",
+          "category": "Plumbing"
+        },
+        "primary_keyword": "Plumber",
+        "additional_services": [
+          "Emergency Plumbing",
+          "Drain Cleaning",
+          "Water Heater Installation",
+          "Leak Detection"
+        ],
+        "service_areas": [
+          {
+            "city": "Austin"
+          },
+          {
+            "city": "Round Rock"
+          }
+        ],
+        "template": "Greenz",
+        "timestamp": "2025-10-17T17:15:15.255517"
+      },
+      "updated_at": "2025-10-17T17:15:54.267528",
+      "message": "Generation completed successfully"
+    }
+  }
+}

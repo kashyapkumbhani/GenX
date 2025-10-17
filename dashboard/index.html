@@ -25,23 +25,33 @@
                     
                     <div class="step-content active" data-step="1">
                         <h2>Business Information</h2>
-                        <div class="form-group">
-                            <label for="businessName">Business Name *</label>
-                            <input type="text" id="businessName" name="businessName" required>
+                        
+                        <!-- Row 1: Business Name | Phone Number | Email Address | Website URL -->
+                        <div class="form-grid-row">
+                            <div class="form-group">
+                                <label for="businessName">Business Name *</label>
+                                <input type="text" id="businessName" name="businessName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phoneNumber">Phone Number</label>
+                                <input type="tel" id="phoneNumber" name="phoneNumber">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="website">Website URL</label>
+                                <input type="url" id="website" name="website">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="phoneNumber">Phone Number</label>
-                            <input type="tel" id="phoneNumber" name="phoneNumber">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="address">Street Address</label>
-                            <input type="text" id="address" name="address">
-                        </div>
-                        <div class="form-row">
+                        
+                        <!-- Row 2: Street Address | City | State | Zip Code -->
+                        <div class="form-grid-row">
+                            <div class="form-group">
+                                <label for="address">Street Address</label>
+                                <input type="text" id="address" name="address">
+                            </div>
                             <div class="form-group">
                                 <label for="city">City</label>
                                 <input type="text" id="city" name="city">
@@ -51,37 +61,41 @@
                                 <input type="text" id="state" name="state">
                             </div>
                             <div class="form-group">
-                                <label for="zipCode">ZIP Code</label>
+                                <label for="zipCode">Zip Code</label>
                                 <input type="text" id="zipCode" name="zipCode">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="website">Website URL</label>
-                            <input type="url" id="website" name="website">
-                        </div>
-                        <div class="form-group">
-                            <label for="businessCategory">Business Category</label>
-                            <div class="category-input-container">
-                                <select id="businessCategory" name="businessCategory">
-                                    <option value="">Select a category or add custom</option>
-                                    <option value="Plumbing">Plumbing</option>
-                                    <option value="Electrical">Electrical</option>
-                                    <option value="HVAC">HVAC</option>
-                                    <option value="Cleaning">Cleaning</option>
-                                    <option value="Landscaping">Landscaping</option>
-                                    <option value="Construction">Construction</option>
-                                    <option value="Automotive">Automotive</option>
-                                    <option value="Restaurant">Restaurant</option>
-                                    <option value="Retail">Retail</option>
-                                    <option value="Healthcare">Healthcare</option>
-                                    <option value="custom">Add Custom Category</option>
-                                </select>
-                                <input type="text" id="customCategory" name="customCategory" placeholder="Enter custom category" style="display: none;">
+                        
+                        <!-- Row 3: Business Category | Next Button | Auto Fill Button -->
+                        <div class="form-grid-row form-grid-row-buttons">
+                            <div class="form-group">
+                                <label for="businessCategory">Business Category</label>
+                                <div class="category-input-container">
+                                    <select id="businessCategory" name="businessCategory">
+                                        <option value="">Select a category or add custom</option>
+                                        <option value="Plumbing">Plumbing</option>
+                                        <option value="Electrical">Electrical</option>
+                                        <option value="HVAC">HVAC</option>
+                                        <option value="Cleaning">Cleaning</option>
+                                        <option value="Landscaping">Landscaping</option>
+                                        <option value="Construction">Construction</option>
+                                        <option value="Automotive">Automotive</option>
+                                        <option value="Restaurant">Restaurant</option>
+                                        <option value="Retail">Retail</option>
+                                        <option value="Healthcare">Healthcare</option>
+                                        <option value="custom">Add Custom Category</option>
+                                    </select>
+                                    <input type="text" id="customCategory" name="customCategory" placeholder="Enter custom category" style="display: none;">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-buttons">
-                            <button type="button" class="btn-next">Next</button>
-                            <button type="button" class="btn-autofill">Autofill Form</button>
+                            <div class="form-group form-button-group">
+                                <label>&nbsp;</label>
+                                <button type="button" class="btn-next">Next</button>
+                            </div>
+                            <div class="form-group form-button-group">
+                                <label>&nbsp;</label>
+                                <button type="button" class="btn-autofill">Auto Fill</button>
+                            </div>
                         </div>
                     </div>
                     

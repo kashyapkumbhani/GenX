@@ -201,7 +201,7 @@ def discover_templates(template_base_dir):
     
     return discovered_templates
 
-def generate_ai_content(business_data, template_name=None, api_key=None):
+def generate_ai_content(business_data, template_name=None, api_key=None, progress_callback=None):
     """
     Generate AI content for any template type using dynamic discovery
     
@@ -240,27 +240,39 @@ def generate_ai_content(business_data, template_name=None, api_key=None):
     
     # Generate content for each schema in the template
     generated_content = {}
+    total_schemas = len(template_schemas)
     
     # Process each schema in the template
-    for schema_name, schema_info in template_schemas.items():
+    for schema_index, (schema_name, schema_info) in enumerate(template_schemas.items(), 1):
         schema = schema_info['schema']
         
-        print(f"\n📄 [AI Content] Processing schema: {schema_name}")
+        print(f"\n📄 [AI Content] Processing schema: {schema_name} ({schema_index}/{total_schemas})")
+        
+        # Update progress if callback is provided
+        if progress_callback:
+            base_progress = int((schema_index - 1) / total_schemas * 100)
+            progress_callback(base_progress, f"Processing {schema_name}...")
         
         # Handle location-based schemas (like location.json)
         if schema_name == 'location' and 'service_areas' in business_data:
             print(f"   🌍 [Location Schema] Processing location-based content for {len(business_data['service_areas'])} areas")
             location_content = {}
+            total_locations = len(business_data['service_areas'])
             
             for i, area in enumerate(business_data['service_areas'], 1):
                 city = area.get('city')
                 
                 # Create display name based on available data
                 location_display = city
-                print(f"\n   🏙️  LOCATION {i}/{len(business_data['service_areas'])}: Starting {city}")
+                print(f"\n   🏙️  LOCATION {i}/{total_locations}: Starting {city}")
+                
+                # Update progress for this location
+                if progress_callback:
+                    location_progress = base_progress + int((i / total_locations) * (100 / total_schemas))
+                    progress_callback(location_progress, f"Generating content for {city}...")
                 
                 # Get API key for this specific location using rotation
-                location_api_key = api_key if api_key else get_api_key_for_location(i - 1, len(business_data['service_areas']))
+                location_api_key = api_key if api_key else get_api_key_for_location(i - 1, total_locations)
                 if not location_api_key:
                     print(f"      ⚠️  No API key available for {city} - skipping AI generation")
                     continue
@@ -290,6 +302,12 @@ def generate_ai_content(business_data, template_name=None, api_key=None):
         else:
             # Handle regular schemas (like index.json, services.json, about.json, etc.)
             print(f"   📝 [Regular Schema] Generating content for {schema_name}")
+            
+            # Update progress for regular schema
+            if progress_callback:
+                schema_progress = base_progress + int(50 / total_schemas)
+                progress_callback(schema_progress, f"Generating {schema_name} content...")
+            
             schema_api_key = api_key if api_key else get_random_api_key()
             if not schema_api_key:
                 print(f"   ⚠️  No API key available for {schema_name} - skipping AI generation")
@@ -317,6 +335,10 @@ def generate_ai_content(business_data, template_name=None, api_key=None):
             if len(template_schemas) > 1:
                 print("   ⏳ Waiting 2 seconds before next schema...")
                 time.sleep(2)
+    
+    # Final progress update
+    if progress_callback:
+        progress_callback(100, "AI content generation complete!")
     
     print(f"\n🎉 [AI Content] ALL CONTENT GENERATION COMPLETE!")
     print(f"   📊 Schemas processed: {list(generated_content.keys())}")
@@ -545,11 +567,11 @@ def _call_gemini_api_full_schema(prompt, schema, api_key, business_data=None, ma
             print(f"         📡 [API] Response status: {response.status_code}")
             
             if response.status_code == 429:
-                print(f"         ⚠️  [API] Rate limit hit! Switching to different API key...")
-                # Switch to a different API key immediately
-                api_key = get_random_api_key()
-                print(f"         🔄 [API] Switched to new API key ending in ...{api_key[-8:]}")
-                url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={api_key}"
+                print(f"         ⚠️  [API] Rate limit hit! Waiting before retry...")
+                # Wait longer for rate limit instead of switching keys to maintain rotation
+                wait_time = 5 + (attempt * 2)  # Progressive backoff: 5, 7, 9 seconds
+                print(f"         ⏳ [API] Waiting {wait_time} seconds for rate limit...")
+                time.sleep(wait_time)
                 continue
             
             if response.status_code == 200:

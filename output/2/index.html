@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{ content.meta_description }}">
-    <meta name="keywords" content="{{ content.meta_keywords }}">
-    <meta name="geo.region" content="US-{{ business.state | upper | replace(' ', '-') }}">
-    <meta name="geo.placename" content="{{ business.city }}">
-    <meta name="geo.position" content="{{ content.geo_position }}">
-    <title>{{ content.page_title }}</title>
+    <meta name="description" content="Need a reliable plumber in Austin, TX? ABC Plumbing Services offers expert plumbing services, including emergency repairs, drain cleaning, water heater installation, and leak detection. Call (555) 123-4567 for fast, reliable service!">
+    <meta name="keywords" content="plumber, plumbing, Austin, Texas, emergency plumbing, drain cleaning, water heater installation, leak detection, ABC Plumbing Services">
+    <meta name="geo.region" content="US-TEXAS">
+    <meta name="geo.placename" content="Austin">
+    <meta name="geo.position" content="30.2672; -97.7431">
+    <title>Top-Rated Plumber in Austin, Texas | ABC Plumbing Services</title>
     <!-- Load Google Fonts - Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -72,7 +72,7 @@
     <header class="bg-white shadow-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
             <h1 class="text-2xl font-bold text-primary-green">
-                <a href="#">{{ business.name }}</a>
+                <a href="#">ABC Plumbing Services</a>
             </h1>
             <nav class="hidden md:flex space-x-6 text-gray-600 font-medium">
                 <a href="#services" class="hover:text-primary-green transition duration-150">Services</a>
@@ -98,17 +98,17 @@
             <div class="max-w-5xl mx-auto px-4">
                 <!-- H1: SEO optimized for service and locality -->
                 <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight text-gray-900">
-                    {{ content.hero_heading }}
+                    Your Trusted Plumbing Experts in Austin, TX
                 </h2>
                 <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                    {{ content.hero_subheading }}
+                    From leaky faucets to major plumbing emergencies, ABC Plumbing Services provides fast, reliable, and affordable solutions for your home or business.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
                     <a href="#contact" class="cta-button text-white px-10 py-4 rounded-xl text-xl font-bold shadow-2xl hover:shadow-primary-green/50">
-                        {{ content.hero_cta }}
+                        Get a Free Quote
                     </a>
-                    <a href="tel:{{ business.phone }}" class="bg-gray-200 text-primary-green px-10 py-4 rounded-xl text-xl font-bold border-2 border-primary-green/50 hover:bg-gray-300">
-                        Call {{ business.phone }}
+                    <a href="tel:(555) 123-4567" class="bg-gray-200 text-primary-green px-10 py-4 rounded-xl text-xl font-bold border-2 border-primary-green/50 hover:bg-gray-300">
+                        Call (555) 123-4567
                     </a>
                 </div>
             </div>
@@ -117,19 +117,19 @@
         <!-- 3. SERVICE SUMMARY (Key offerings) -->
         <section id="services" class="py-16 bg-light-gray">
             <div class="max-w-7xl mx-auto px-4 text-center">
-                <h3 class="text-3xl font-bold mb-10 section-header">{{ content.services_section_title }}</h3>
+                <h3 class="text-3xl font-bold mb-10 section-header">Our Plumbing Services</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="p-6 bg-white rounded-xl shadow-lg border-t-4 border-primary-green">
-                        <h4 class="text-xl font-semibold mb-3 text-gray-900">{{ content.service_1_title }}</h4>
-                        <p class="text-gray-600">{{ content.service_1_description }}</p>
+                        <h4 class="text-xl font-semibold mb-3 text-gray-900">Emergency Plumbing</h4>
+                        <p class="text-gray-600">24/7 emergency plumbing services for burst pipes, leaks, and more.</p>
                     </div>
                     <div class="p-6 bg-white rounded-xl shadow-lg border-t-4 border-primary-green">
-                        <h4 class="text-xl font-semibold mb-3 text-gray-900">{{ content.service_2_title }}</h4>
-                        <p class="text-gray-600">{{ content.service_2_description }}</p>
+                        <h4 class="text-xl font-semibold mb-3 text-gray-900">Drain Cleaning</h4>
+                        <p class="text-gray-600">Professional drain cleaning to clear clogs and restore proper drainage.</p>
                     </div>
                     <div class="p-6 bg-white rounded-xl shadow-lg border-t-4 border-primary-green">
-                        <h4 class="text-xl font-semibold mb-3 text-gray-900">{{ content.service_3_title }}</h4>
-                        <p class="text-gray-600">{{ content.service_3_description }}</p>
+                        <h4 class="text-xl font-semibold mb-3 text-gray-900">Water Heater Installation</h4>
+                        <p class="text-gray-600">Expert water heater installation, repair, and maintenance services.</p>
                     </div>
                 </div>
             </div>
@@ -138,41 +138,41 @@
         <!-- 4. WHY CHOOSE US (USPs & Authority) -->
         <section id="why-us" class="py-16 bg-white">
             <div class="max-w-7xl mx-auto px-4">
-                <h3 class="text-3xl font-bold mb-10 text-center section-header">{{ content.why_us_heading }}</h3>
+                <h3 class="text-3xl font-bold mb-10 text-center section-header">Why Choose ABC Plumbing Services?</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div class="text-center p-4">
                         <div class="w-12 h-12 mx-auto mb-3 bg-primary-green rounded-full flex items-center justify-center">
                             <div class="w-6 h-6 bg-white rounded-full"></div>
                         </div>
-                        <h4 class="font-semibold text-lg mb-1">{{ content.benefit_1_title }}</h4>
-                        <p class="text-gray-600 text-sm">{{ content.benefit_1_description }}</p>
+                        <h4 class="font-semibold text-lg mb-1">24/7 Emergency Service</h4>
+                        <p class="text-gray-600 text-sm">Plumbing emergencies don't wait, and neither do we. Our team is available around the clock to handle any urgent plumbing issue.</p>
                     </div>
                     <div class="text-center p-4">
                         <div class="w-12 h-12 mx-auto mb-3 bg-primary-green rounded-full flex items-center justify-center">
                             <div class="w-6 h-6 bg-white rounded-full"></div>
                         </div>
-                        <h4 class="font-semibold text-lg mb-1">{{ content.benefit_2_title }}</h4>
-                        <p class="text-gray-600 text-sm">{{ content.benefit_2_description }}</p>
+                        <h4 class="font-semibold text-lg mb-1">Experienced & Licensed Plumbers</h4>
+                        <p class="text-gray-600 text-sm">Our plumbers are highly trained, licensed, and insured, ensuring quality workmanship and peace of mind.</p>
                     </div>
                     <div class="text-center p-4">
                         <div class="w-12 h-12 mx-auto mb-3 bg-primary-green rounded-full flex items-center justify-center">
                             <div class="w-6 h-6 bg-white rounded-full"></div>
                         </div>
-                        <h4 class="font-semibold text-lg mb-1">{{ content.benefit_3_title }}</h4>
-                        <p class="text-gray-600 text-sm">{{ content.benefit_3_description }}</p>
+                        <h4 class="font-semibold text-lg mb-1">Upfront & Honest Pricing</h4>
+                        <p class="text-gray-600 text-sm">We provide clear, upfront pricing with no hidden fees. You'll know exactly what to expect before we start any work.</p>
                     </div>
                     <div class="text-center p-4">
                         <div class="w-12 h-12 mx-auto mb-3 bg-primary-green rounded-full flex items-center justify-center">
                             <div class="w-6 h-6 bg-white rounded-full"></div>
                         </div>
-                        <h4 class="font-semibold text-lg mb-1">{{ content.benefit_4_title }}</h4>
-                        <p class="text-gray-600 text-sm">{{ content.benefit_4_description }}</p>
+                        <h4 class="font-semibold text-lg mb-1">Satisfaction Guaranteed</h4>
+                        <p class="text-gray-600 text-sm">We stand behind our work. If you're not completely satisfied, we'll make it right.</p>
                     </div>
                 </div>
                 <!-- Secondary CTA -->
                 <div class="text-center mt-10">
                     <a href="#contact" class="cta-button text-white px-8 py-3 rounded-lg font-semibold shadow-xl">
-                        {{ content.why_us_cta }}
+                        Schedule Service Now
                     </a>
                 </div>
             </div>
@@ -181,7 +181,7 @@
         <!-- 5. HOW IT WORKS (Process) -->
         <section id="process" class="py-16 bg-light-gray">
             <div class="max-w-5xl mx-auto px-4">
-                <h3 class="text-3xl font-bold mb-12 text-center section-header">{{ content.process_heading }}</h3>
+                <h3 class="text-3xl font-bold mb-12 text-center section-header">Our Simple & Effective Plumbing Process</h3>
                 <div class="relative">
                     <!-- Timeline line (for desktop) -->
                     <div class="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-primary-green/30 transform -translate-y-1/2"></div>
@@ -190,20 +190,20 @@
                         <!-- Step 1 -->
                         <div class="text-center relative p-6 bg-white rounded-xl shadow-xl">
                             <div class="w-10 h-10 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl ring-4 ring-primary-green/30">1</div>
-                            <h4 class="text-xl font-semibold mb-2">{{ content.step_1_title }}</h4>
-                            <p class="text-gray-600">{{ content.step_1_description }}</p>
+                            <h4 class="text-xl font-semibold mb-2">Contact Us & Explain Your Issue</h4>
+                            <p class="text-gray-600">Call us or fill out our online form to describe your plumbing problem. We'll ask the right questions to understand your needs.</p>
                         </div>
                         <!-- Step 2 -->
                         <div class="text-center relative p-6 bg-white rounded-xl shadow-xl">
                             <div class="w-10 h-10 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl ring-4 ring-primary-green/30">2</div>
-                            <h4 class="text-xl font-semibold mb-2">{{ content.step_2_title }}</h4>
-                            <p class="text-gray-600">{{ content.step_2_description }}</p>
+                            <h4 class="text-xl font-semibold mb-2">Receive a Quote & Schedule Service</h4>
+                            <p class="text-gray-600">We'll provide a transparent quote and schedule a convenient time for our plumbers to visit your property.</p>
                         </div>
                         <!-- Step 3 -->
                         <div class="text-center relative p-6 bg-white rounded-xl shadow-xl">
                             <div class="w-10 h-10 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl ring-4 ring-primary-green/30">3</div>
-                            <h4 class="text-xl font-semibold mb-2">{{ content.step_3_title }}</h4>
-                            <p class="text-gray-600">{{ content.step_3_description }}</p>
+                            <h4 class="text-xl font-semibold mb-2">Expert Plumbing Service & Follow-Up</h4>
+                            <p class="text-gray-600">Our plumbers will arrive on time, diagnose the issue, perform the necessary repairs, and ensure your satisfaction.</p>
                         </div>
                     </div>
                 </div>
@@ -213,17 +213,19 @@
         <!-- 6. LOCAL SERVICE AREA (Critical for local SEO) -->
         <section id="areas" class="py-16 bg-white">
             <div class="max-w-7xl mx-auto px-4">
-                <h3 class="text-3xl font-bold mb-6 text-center section-header">{{ content.communities_heading }}</h3>
-                <p class="text-lg text-gray-600 text-center mb-10 max-w-2xl mx-auto">{{ content.communities_description }}</p>
+                <h3 class="text-3xl font-bold mb-6 text-center section-header">Serving the Austin Community</h3>
+                <p class="text-lg text-gray-600 text-center mb-10 max-w-2xl mx-auto">We proudly serve Austin, Texas, and the surrounding areas. Our commitment is to provide exceptional plumbing services to our neighbors and contribute to a thriving community.</p>
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 text-center">
-                    {% for area in service_areas %}
-                    <a href="{{ primary_keyword.lower().replace(' ', '-') }}-in-{{ area.city.lower().replace(' ', '-') }}.html" class="p-3 bg-light-gray rounded-lg font-medium text-gray-700 hover:bg-primary-green/10 transition duration-150 no-underline">{{ area.city }}</a>
-                    {% endfor %}
+                    
+                    <a href="plumber-in-austin.html" class="p-3 bg-light-gray rounded-lg font-medium text-gray-700 hover:bg-primary-green/10 transition duration-150 no-underline">Austin</a>
+                    
+                    <a href="plumber-in-round-rock.html" class="p-3 bg-light-gray rounded-lg font-medium text-gray-700 hover:bg-primary-green/10 transition duration-150 no-underline">Round Rock</a>
+                    
                 </div>
                 <!-- Tertiary CTA -->
                 <div class="text-center mt-10">
                     <a href="#contact" class="text-lg font-semibold text-primary-green hover:underline">
-                        {{ content.communities_contact_cta }}
+                        Contact Us About Your Area
                     </a>
                 </div>
             </div>
@@ -232,19 +234,19 @@
         <!-- 7. TESTIMONIALS (Social Proof) -->
         <section id="testimonials" class="py-16 bg-primary-green/5">
             <div class="max-w-5xl mx-auto px-4">
-                <h3 class="text-3xl font-bold mb-10 text-center section-header">{{ content.testimonials_heading }}</h3>
+                <h3 class="text-3xl font-bold mb-10 text-center section-header">What Our Customers Are Saying</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-primary-green">
-                        <p class="italic text-gray-700 mb-4">"{{ content.testimonial_1_text }}"</p>
-                        <p class="font-semibold text-primary-green">- {{ content.testimonial_1_author }}</p>
+                        <p class="italic text-gray-700 mb-4">"ABC Plumbing Services fixed my leaky pipe quickly and efficiently. I was very impressed with their professionalism and the quality of their work."</p>
+                        <p class="font-semibold text-primary-green">- Sarah M., Austin, TX</p>
                     </div>
                     <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-primary-green">
-                        <p class="italic text-gray-700 mb-4">"{{ content.testimonial_2_text }}"</p>
-                        <p class="font-semibold text-primary-green">- {{ content.testimonial_2_author }}</p>
+                        <p class="italic text-gray-700 mb-4">"I had a plumbing emergency in the middle of the night, and ABC Plumbing Services was there within an hour. They saved the day!"</p>
+                        <p class="font-semibold text-primary-green">- John B., Round Rock, TX</p>
                     </div>
                     <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-primary-green">
-                        <p class="italic text-gray-700 mb-4">"{{ content.testimonial_3_text }}"</p>
-                        <p class="font-semibold text-primary-green">- {{ content.testimonial_3_author }}</p>
+                        <p class="italic text-gray-700 mb-4">"We recently had ABC Plumbing install a new water heater. The whole process was smooth, and the price was very reasonable."</p>
+                        <p class="font-semibold text-primary-green">- Emily L., Pflugerville, TX</p>
                     </div>
                 </div>
             </div>
@@ -253,19 +255,37 @@
         <!-- 8. FAQ (Handles objections, boosts SEO) -->
         <section id="faq" class="py-16 bg-white">
             <div class="max-w-4xl mx-auto px-4">
-                <h3 class="text-3xl font-bold mb-10 text-center section-header">{{ content.faq_heading }}</h3>
+                <h3 class="text-3xl font-bold mb-10 text-center section-header">Frequently Asked Questions</h3>
 
                 <div class="space-y-4">
-                    {% for faq in content.faqs %}
+                    
                     <div class="border border-gray-200 rounded-lg overflow-hidden">
                         <button class="w-full text-left p-4 font-semibold text-lg text-gray-900 bg-gray-50 hover:bg-primary-green/10 transition duration-150">
-                            {{ faq.question }}
+                            How quickly can ABC Plumbing Services respond to a plumbing emergency in Austin?
                         </button>
                         <div class="p-4 text-gray-600 border-t border-gray-200">
-                            {{ faq.answer }}
+                            We understand that plumbing emergencies require immediate attention. ABC Plumbing Services offers 24/7 emergency services and strives to arrive at your location in Austin within one hour, depending on traffic and location.
                         </div>
                     </div>
-                    {% endfor %}
+                    
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="w-full text-left p-4 font-semibold text-lg text-gray-900 bg-gray-50 hover:bg-primary-green/10 transition duration-150">
+                            What types of payment do ABC Plumbing Services accept?
+                        </button>
+                        <div class="p-4 text-gray-600 border-t border-gray-200">
+                            For your convenience, ABC Plumbing Services accepts a variety of payment methods, including cash, checks, and major credit cards. We can discuss payment options with you when you schedule your appointment.
+                        </div>
+                    </div>
+                    
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="w-full text-left p-4 font-semibold text-lg text-gray-900 bg-gray-50 hover:bg-primary-green/10 transition duration-150">
+                            Are your plumbing services guaranteed?
+                        </button>
+                        <div class="p-4 text-gray-600 border-t border-gray-200">
+                            Yes, ABC Plumbing Services stands behind the quality of our workmanship. We offer a satisfaction guarantee on all of our plumbing services. If you are not completely satisfied, please contact us, and we will do our best to make it right.
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </section>
@@ -279,12 +299,12 @@
         <section id="guarantee" class="py-12 bg-primary-green text-white">
             <div class="max-w-4xl mx-auto px-4 text-center">
                 
-                <h3 class="text-3xl font-bold mb-2">{{ content.guarantee_heading }}</h3>
+                <h3 class="text-3xl font-bold mb-2">Our Satisfaction Guarantee</h3>
                 <p class="text-xl font-light mb-6">
-                    {{ content.guarantee_description }}
+                    We are committed to providing you with the highest quality plumbing services. If you are not completely satisfied with our work, we will do everything we can to make it right.
                 </p>
                 <p class="font-medium text-lg">
-                    That's the {{ business.name }} {{ content.guarantee_tagline }}
+                    That's the ABC Plumbing Services Your Satisfaction is Our Priority
                 </p>
             </div>
         </section>
@@ -292,40 +312,40 @@
         <!-- 10. EXPERTISE & SPECIALIZED SERVICES (SEO Expertise Boost) -->
         <section id="expertise" class="py-16 bg-light-gray">
             <div class="max-w-7xl mx-auto px-4">
-                <h3 class="text-3xl font-bold mb-6 text-center section-header">{{ content.expertise_heading }}</h3>
+                <h3 class="text-3xl font-bold mb-6 text-center section-header">Our Plumbing Expertise</h3>
                 <p class="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
-                    {{ content.expertise_description }}
+                    Our team of experienced and licensed plumbers is equipped to handle any plumbing issue, big or small. We use the latest technology and techniques to ensure efficient and effective solutions.
                 </p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
                     
                     <div class="p-6 bg-white rounded-xl shadow-xl border-b-4 border-primary-green transition duration-300 hover:shadow-2xl">
-                        <h4 class="text-xl font-semibold mb-2 text-gray-900">{{ content.expertise_1_title }}</h4>
-                        <p class="text-gray-600 text-sm">{{ content.expertise_1_description }}</p>
+                        <h4 class="text-xl font-semibold mb-2 text-gray-900">Leak Detection & Repair</h4>
+                        <p class="text-gray-600 text-sm">We utilize advanced leak detection technology to quickly identify and repair hidden leaks, saving you money on your water bill.</p>
                     </div>
 
                     <div class="p-6 bg-white rounded-xl shadow-xl border-b-4 border-primary-green transition duration-300 hover:shadow-2xl">
-                        <h4 class="text-xl font-semibold mb-2 text-gray-900">{{ content.expertise_2_title }}</h4>
-                        <p class="text-gray-600 text-sm">{{ content.expertise_2_description }}</p>
+                        <h4 class="text-xl font-semibold mb-2 text-gray-900">Drain Cleaning & Unclogging</h4>
+                        <p class="text-gray-600 text-sm">We offer comprehensive drain cleaning services to remove clogs and restore proper drainage to your sinks, showers, and toilets.</p>
                     </div>
 
                     <div class="p-6 bg-white rounded-xl shadow-xl border-b-4 border-primary-green transition duration-300 hover:shadow-2xl">
-                        <h4 class="text-xl font-semibold mb-2 text-gray-900">{{ content.expertise_3_title }}</h4>
-                        <p class="text-gray-600 text-sm">{{ content.expertise_3_description }}</p>
+                        <h4 class="text-xl font-semibold mb-2 text-gray-900">Water Heater Services</h4>
+                        <p class="text-gray-600 text-sm">From water heater installation and repair to maintenance and replacement, we can handle all your water heating needs.</p>
                     </div>
 
                     <div class="p-6 bg-white rounded-xl shadow-xl border-b-4 border-primary-green transition duration-300 hover:shadow-2xl">
-                        <h4 class="text-xl font-semibold mb-2 text-gray-900">{{ content.expertise_4_title }}</h4>
-                        <p class="text-gray-600 text-sm">{{ content.expertise_4_description }}</p>
+                        <h4 class="text-xl font-semibold mb-2 text-gray-900">Emergency Plumbing Repairs</h4>
+                        <p class="text-gray-600 text-sm">We provide 24/7 emergency plumbing repair services to address burst pipes, overflowing toilets, and other urgent plumbing issues.</p>
                     </div>
 
                 </div>
 
                 <!-- Strong CTA at the bottom -->
                 <div class="text-center mt-12">
-                    <h4 class="text-2xl font-bold mb-4 text-gray-900">{{ content.expertise_cta_heading }}</h4>
+                    <h4 class="text-2xl font-bold mb-4 text-gray-900">Need Expert Plumbing Services?</h4>
                     <a href="#contact" class="cta-button text-white px-10 py-4 rounded-xl text-xl font-bold shadow-2xl hover:shadow-primary-green/50">
-                        {{ content.expertise_cta_button }}
+                        Contact Us Today
                     </a>
                 </div>
             </div>
@@ -337,9 +357,9 @@
             <div class="max-w-4xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <!-- Contact Info Column -->
                 <div class="lg:pr-8">
-                    <h3 class="text-3xl font-bold mb-4 section-header">{{ content.contact_heading }}</h3>
+                    <h3 class="text-3xl font-bold mb-4 section-header">Contact ABC Plumbing Services</h3>
                     <p class="text-lg text-gray-600 mb-6">
-                        {{ content.contact_description }}
+                        We're here to help with all your plumbing needs. Contact us today to schedule service or request a free quote.
                     </p>
                     <div class="space-y-4">
                         <div class="flex items-center space-x-3">
@@ -348,7 +368,7 @@
                                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
                                 </svg>
                             </div>
-                            <a href="tel:{{ business.phone }}" class="text-xl font-semibold text-gray-900 hover:text-primary-green transition">{{ business.phone }}</a>
+                            <a href="tel:(555) 123-4567" class="text-xl font-semibold text-gray-900 hover:text-primary-green transition">(555) 123-4567</a>
                         </div>
                         <div class="flex items-center space-x-3">
                             <div class="w-8 h-8 bg-primary-green rounded-full flex items-center justify-center">
@@ -357,7 +377,7 @@
                                     <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
                                 </svg>
                             </div>
-                            <a href="mailto:{{ business.email }}" class="text-xl font-semibold text-gray-900 hover:text-primary-green transition">{{ business.email }}</a>
+                            <a href="mailto:contact@abcplumbing.com" class="text-xl font-semibold text-gray-900 hover:text-primary-green transition">contact@abcplumbing.com</a>
                         </div>
                         <div class="flex items-start space-x-3">
                             <div class="w-8 h-8 bg-primary-green rounded-full flex items-center justify-center mt-1">
@@ -365,7 +385,7 @@
                                     <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
                                 </svg>
                             </div>
-                            <p class="text-lg text-gray-700">{{ business.address }}, {{ business.city }}, {{ business.state }} {{ business.zipCode }}</p>
+                            <p class="text-lg text-gray-700">123 Main Street, Austin, Texas 78701</p>
                         </div>
                     </div>
                 </div>
@@ -403,12 +423,12 @@
         <!-- 12. CLOSING CTA (Final Push) -->
         <section class="py-16 bg-primary-green/10 text-center">
             <div class="max-w-3xl mx-auto px-4">
-                <h3 class="text-3xl font-bold mb-4 text-gray-900">{{ content.closing_cta_heading }}</h3>
+                <h3 class="text-3xl font-bold mb-4 text-gray-900">Ready to Experience the ABC Plumbing Services Difference?</h3>
                 <p class="text-xl text-gray-600 mb-6">
-                    {{ content.closing_cta_text }}
+                    Don't let plumbing problems disrupt your day. Contact us today for fast, reliable, and affordable solutions.
                 </p>
                 <a href="#contact" class="cta-button text-white px-10 py-4 rounded-xl text-xl font-bold shadow-2xl hover:shadow-primary-green/50">
-                    {{ content.closing_cta_button }}
+                    Call (555) 123-4567
                 </a>
             </div>
         </section>
@@ -421,8 +441,8 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <!-- Company Info -->
                 <div>
-                    <h5 class="text-lg font-bold text-primary-green mb-3">{{ business.name }}</h5>
-                    <p class="text-gray-400 text-sm">{{ content.footer_company_description }}</p>
+                    <h5 class="text-lg font-bold text-primary-green mb-3">ABC Plumbing Services</h5>
+                    <p class="text-gray-400 text-sm">ABC Plumbing Services is a trusted plumbing provider serving Austin, Texas, and surrounding areas. We are dedicated to providing high-quality plumbing services with a focus on customer satisfaction.</p>
                 </div>
                 <!-- Quick Links -->
                 <div>
@@ -437,20 +457,20 @@
                 <!-- Service Info -->
                 <div>
                     <h5 class="text-lg font-bold text-primary-green mb-3">Service Details</h5>
-                    <p class="text-gray-400 text-sm">{{ content.footer_service_details }}</p>
+                    <p class="text-gray-400 text-sm">We offer a wide range of plumbing services, including emergency repairs, drain cleaning, water heater installation, and leak detection.</p>
                 </div>
                 <!-- Contact Info (Footer CTA) -->
                 <div>
                     <h5 class="text-lg font-bold text-primary-green mb-3">Contact Us</h5>
                     <p class="text-gray-400 text-sm">Call us now:</p>
-                    <p class="text-xl font-bold text-white mb-2"><a href="tel:{{ business.phone }}" class="hover:text-primary-green transition">{{ business.phone }}</a></p>
+                    <p class="text-xl font-bold text-white mb-2"><a href="tel:(555) 123-4567" class="hover:text-primary-green transition">(555) 123-4567</a></p>
                     <a href="#contact" class="text-sm font-semibold text-primary-green hover:underline">Request a callback</a>
                 </div>
             </div>
 
             <!-- Copyright and SEO text -->
             <div class="mt-8 pt-6 border-t border-gray-700 text-center text-sm text-gray-500">
-                &copy; 2024 {{ business.name }}. All rights reserved. | <span class="text-primary-green">{{ content.footer_copyright }}</span>
+                &copy; 2024 ABC Plumbing Services. All rights reserved. | <span class="text-primary-green">&copy; 2023 ABC Plumbing Services. All rights reserved.</span>
             </div>
         </div>
     </footer>

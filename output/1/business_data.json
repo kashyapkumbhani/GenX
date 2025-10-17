@@ -23,8 +23,17 @@
     },
     {
       "city": "Round Rock"
+    },
+    {
+      "city": "Cedar Park"
+    },
+    {
+      "city": "Georgetown"
+    },
+    {
+      "city": "Pflugerville"
     }
   ],
   "template": "Greenz",
-  "timestamp": "2025-10-17T17:15:15.255517"
+  "timestamp": "2025-10-17T17:10:02.321624"
 }

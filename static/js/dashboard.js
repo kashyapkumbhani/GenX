@@ -118,10 +118,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 .then(response => response.json())
                 .then(data => {
                     if (data.status === 'success') {
-                        alert('Site generated successfully!');
-                        window.location.href = data.preview_url;
+                        alert('Site generation started! You will be redirected to track the progress.');
+                        window.location.href = data.redirect_url;
                     } else {
-                        alert('Error generating site: ' + data.message);
+                        alert('Error starting site generation: ' + data.message);
                         generateBtn.textContent = 'Generate Site';
                         generateBtn.disabled = false;
                     }

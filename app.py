@@ -1,9 +1,11 @@
 import os
-from flask import Flask, render_template, request, jsonify, redirect, url_for, send_from_directory, send_file
+from flask import Flask, render_template, request, jsonify, redirect, url_for, send_from_directory, send_file, Response
 from dotenv import load_dotenv
+from bs4 import BeautifulSoup
 from modules.site_generator import generate_site
 from modules.data_manager import save_business_data, get_business_data, get_history, delete_site_version, create_site_zip
 from modules.ai_content import generate_ai_content, discover_templates
+from modules.generation_tracker import tracker
 
 # Load environment variables
 load_dotenv()
@@ -35,9 +37,17 @@ def dashboard():
 
 @app.route('/history')
 def history():
-    """View previously generated websites"""
-    history_data = get_history()
-    return render_template('history.html', history=history_data, dashboard_path='dashboard')
+    """View previously generated websites and active generations"""
+    # Get all generations from tracker
+    generations = tracker.get_all_generations()
+    
+    # Get legacy history data for backward compatibility
+    legacy_history = get_history()
+    
+    return render_template('history.html', 
+                         generations=generations, 
+                         history=legacy_history, 
+                         dashboard_path='dashboard')
 
 @app.route('/settings')
 def settings():
@@ -56,17 +66,14 @@ def submit_business_data():
     # Save business data
     save_business_data(data)
     
-    # Generate AI content
-    ai_content = generate_ai_content(data, template_name=selected_template, api_key=app.config['GEMINI_API_KEYS'][0])
-    
-    # Generate site
-    output_version = generate_site(data, template_name=selected_template, ai_content=ai_content)
+    # Start background generation and get generation ID
+    generation_id = tracker.start_generation(data, selected_template, app.config['GEMINI_API_KEYS'])
     
     return jsonify({
         'status': 'success',
-        'message': 'Site generated successfully!',
-        'version': output_version,
-        'preview_url': f'/preview/{output_version}'
+        'message': 'Site generation started! Redirecting to history page...',
+        'generation_id': generation_id,
+        'redirect_url': '/history'
     })
 
 @app.route('/preview/<int:version>')
@@ -77,6 +84,45 @@ def preview(version):
 # Serve generated sites
 @app.route('/output/<path:path>')
 def serve_output(path):
+    # Check if this is an HTML file and edit mode is requested
+    if path.endswith('.html') and request.args.get('edit') == 'true':
+        try:
+            # Read the HTML file
+            file_path = os.path.join('output', path)
+            if os.path.exists(file_path):
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                
+                # Inject editor scripts and styles
+                editor_injection = '''
+    <!-- Content Editor Scripts -->
+    <script src="/static/js/content-editor.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>'''
+                
+                # Replace </head> with our injection
+                if '</head>' in content:
+                    content = content.replace('</head>', editor_injection)
+                    
+                    # Add data-editable-id attributes to elements
+                    soup = BeautifulSoup(content, 'html.parser')
+                    editable_selectors = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p']
+                    
+                    index = 0
+                    for selector in editable_selectors:
+                        elements = soup.find_all(selector)
+                        for element in elements:
+                            # Skip if element is empty or already has the attribute
+                            if element.get_text(strip=True) and not element.get('data-editable-id'):
+                                element['data-editable-id'] = f'editable-{index}'
+                                index += 1
+                    
+                    content = str(soup)
+                    
+                    return Response(content, mimetype='text/html')
+        except Exception as e:
+            print(f"Error injecting editor: {e}")
+    
     return send_from_directory('output', path)
 
 @app.route('/delete_version/<int:version>', methods=['POST'])
@@ -471,6 +517,235 @@ Example format: City 1, City 2, City 3, etc."""
             'success': False,
             'error': str(e)
         }), 500
+
+@app.route('/generation_status/<generation_id>')
+def generation_status(generation_id):
+    """Get status of a specific generation"""
+    status = tracker.get_generation_status(generation_id)
+    if status:
+        return jsonify({'success': True, 'generation': status})
+    else:
+        return jsonify({'success': False, 'error': 'Generation not found'}), 404
+
+@app.route('/all_generations_status')
+def all_generations_status():
+    """Get status of all generations"""
+    generations = tracker.get_all_generations()
+    return jsonify({'success': True, 'generations': generations})
+
+@app.route('/delete_generation/<generation_id>', methods=['POST'])
+def delete_generation(generation_id):
+    """Delete a generation record"""
+    success = tracker.delete_generation(generation_id)
+    if success:
+        return jsonify({'success': True, 'message': 'Generation deleted successfully'})
+    else:
+        return jsonify({'success': False, 'error': 'Generation not found'}), 404
+
+# Content Editor API Endpoints
+@app.route('/edit/<int:version>')
+def edit_page(version):
+    """Serve the page editor interface for a specific version"""
+    # Check if the version exists
+    version_path = os.path.join(app.config['OUTPUT_DIR'], str(version))
+    if not os.path.exists(version_path):
+        return jsonify({'error': 'Version not found'}), 404
+    
+    # Redirect to the editor with the version parameter
+    return redirect(f'/output/{version}/index.html?edit=true')
+
+@app.route('/api/pages/<int:version>')
+def get_available_pages(version):
+    """Get list of available pages for a specific version"""
+    try:
+        version_dir = os.path.join(app.config['OUTPUT_DIR'], str(version))
+        
+        if not os.path.exists(version_dir):
+            return jsonify({'success': False, 'error': 'Version not found'}), 404
+        
+        pages = []
+        for file in os.listdir(version_dir):
+            if file.endswith('.html') and not file.endswith('.backup'):
+                # Create a friendly name for the page
+                if file == 'index.html':
+                    friendly_name = 'Home Page'
+                else:
+                    # Convert filename to friendly name (e.g., plumber-in-austin.html -> Plumber in Austin)
+                    friendly_name = file.replace('.html', '').replace('-', ' ').title()
+                
+                pages.append({
+                    'filename': file,
+                    'friendly_name': friendly_name,
+                    'url': f'/output/{version}/{file}'
+                })
+        
+        return jsonify({
+            'success': True,
+            'pages': pages,
+            'version': version
+        })
+    
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+@app.route('/api/content/<int:version>/<path:page>', methods=['GET'])
+def get_page_content(version, page):
+    """Get the content of a specific page for editing"""
+    try:
+        page_path = os.path.join(app.config['OUTPUT_DIR'], str(version), page)
+        
+        if not os.path.exists(page_path):
+            return jsonify({'success': False, 'error': 'Page not found'}), 404
+        
+        with open(page_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        return jsonify({
+            'success': True,
+            'content': content,
+            'page': page,
+            'version': version
+        })
+    
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+@app.route('/api/content/<int:version>/<path:page>', methods=['POST'])
+def save_page_content(version, page):
+    """Save the edited content of a specific page"""
+    try:
+        data = request.get_json()
+        new_content = data.get('content', '')
+        
+        print(f"DEBUG: Saving content for version {version}, page {page}")
+        print(f"DEBUG: Content length: {len(new_content)}")
+        print(f"DEBUG: First 200 chars: {new_content[:200]}")
+        
+        if not new_content:
+            return jsonify({'success': False, 'error': 'Content is required'}), 400
+        
+        page_path = os.path.join(app.config['OUTPUT_DIR'], str(version), page)
+        print(f"DEBUG: Page path: {page_path}")
+        
+        if not os.path.exists(page_path):
+            return jsonify({'success': False, 'error': 'Page not found'}), 404
+        
+        # Create backup before saving
+        backup_path = page_path + '.backup'
+        if os.path.exists(page_path):
+            import shutil
+            shutil.copy2(page_path, backup_path)
+            print(f"DEBUG: Backup created at {backup_path}")
+        
+        # Save the new content
+        with open(page_path, 'w', encoding='utf-8') as f:
+            f.write(new_content)
+        
+        print(f"DEBUG: Content saved successfully to {page_path}")
+        
+        # Verify the save by reading back
+        with open(page_path, 'r', encoding='utf-8') as f:
+            saved_content = f.read()
+        print(f"DEBUG: Verification - saved content length: {len(saved_content)}")
+        
+        return jsonify({
+            'success': True,
+            'message': 'Content saved successfully',
+            'page': page,
+            'version': version
+        })
+    
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+@app.route('/api/sections/<int:version>/<path:page>', methods=['GET'])
+def get_editable_sections(version, page):
+    """Get all editable sections from a page"""
+    try:
+        page_path = os.path.join(app.config['OUTPUT_DIR'], str(version), page)
+        
+        if not os.path.exists(page_path):
+            return jsonify({'success': False, 'error': 'Page not found'}), 404
+        
+        with open(page_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        # Parse HTML to find editable sections
+        from bs4 import BeautifulSoup
+        soup = BeautifulSoup(content, 'html.parser')
+        
+        # Find sections that can be edited (headings, paragraphs, etc.)
+        editable_elements = soup.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span', 'div'])
+        sections = []
+        
+        for i, element in enumerate(editable_elements):
+            if element.get_text(strip=True):  # Only include elements with text content
+                sections.append({
+                    'id': f'editable-{i}',
+                    'tag': element.name,
+                    'content': element.get_text(strip=True),
+                    'html': str(element)
+                })
+        
+        return jsonify({
+            'success': True,
+            'sections': sections,
+            'page': page,
+            'version': version
+        })
+    
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+@app.route('/api/section/<int:version>/<path:page>', methods=['POST'])
+def update_section_content(version, page):
+    """Update a specific section's content"""
+    try:
+        data = request.get_json()
+        section_id = data.get('section_id', '')
+        new_content = data.get('content', '')
+        
+        if not section_id or not new_content:
+            return jsonify({'success': False, 'error': 'Section ID and content are required'}), 400
+        
+        page_path = os.path.join(app.config['OUTPUT_DIR'], str(version), page)
+        
+        if not os.path.exists(page_path):
+            return jsonify({'success': False, 'error': 'Page not found'}), 404
+        
+        # Read current content
+        with open(page_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        # Parse and update the specific section
+        from bs4 import BeautifulSoup
+        soup = BeautifulSoup(content, 'html.parser')
+        
+        # Find the element by data-editable-id attribute
+        target_element = soup.find(attrs={'data-editable-id': section_id})
+        
+        if target_element:
+            target_element.string = new_content
+            
+            # Create backup before saving
+            backup_path = page_path + '.backup'
+            import shutil
+            shutil.copy2(page_path, backup_path)
+            
+            # Save updated content
+            with open(page_path, 'w', encoding='utf-8') as f:
+                f.write(str(soup))
+            
+            return jsonify({
+                'success': True,
+                'message': 'Section updated successfully',
+                'section_id': section_id
+            })
+        else:
+            return jsonify({'success': False, 'error': 'Section not found'}), 404
+    
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
