@@ -159,9 +159,10 @@ class ContentEditor {
                 color: #f39c12;
             }
             
-            /* Only apply editable styles when NOT editing and NOT buttons */
-            .content-editable:not(.editing):not(button):not(.btn):not([class*="btn"]):not(a[class*="btn"]) {
+            /* Editable element styles - only for non-button elements */
+            .content-editable:not(button):not(.btn):not([class*="btn"]):not(a[class*="btn"]) {
                 position: relative;
+                cursor: pointer !important;
                 transition: all 0.2s ease;
                 border: 2px solid transparent;
                 border-radius: 4px;
@@ -169,16 +170,17 @@ class ContentEditor {
                 margin: 2px;
             }
             
-            /* Buttons get absolutely NO styling when editable */
+            /* Minimal editable styling for buttons - preserve ALL original styles */
             .content-editable.btn,
             .content-editable[class*="btn"],
             button.content-editable,
             a.content-editable[class*="btn"] {
-                /* Completely empty - no styles at all */
+                cursor: pointer !important;
+                /* NO other styling changes - preserve everything */
             }
             
-            /* Links that are NOT buttons */
-            a.content-editable:not([class*="btn"]):not(.editing) {
+            /* Only apply link styling overrides to actual links that are NOT buttons */
+            a.content-editable:not([class*="btn"]) {
                 text-decoration: none !important;
                 border: 2px solid transparent;
                 border-radius: 4px;
@@ -187,12 +189,14 @@ class ContentEditor {
                 transition: all 0.2s ease;
             }
             
-            /* Hover effects only for non-buttons and only when not editing */
-            .content-editable:not(.editing):not(button):not(.btn):not([class*="btn"]):not(a[class*="btn"]):hover,
-            a.content-editable:not([class*="btn"]):not(.editing):hover {
+            /* Hover effects for non-button elements */
+            .content-editable:not(button):not(.btn):not([class*="btn"]):not(a[class*="btn"]):hover,
+            a.content-editable:not([class*="btn"]):hover {
                 border-color: #3498db;
                 background-color: rgba(52, 152, 219, 0.1);
             }
+            
+            /* NO hover effects for buttons - keep them completely untouched */
             
             .content-editable.editing {
                 border-color: #27ae60;
